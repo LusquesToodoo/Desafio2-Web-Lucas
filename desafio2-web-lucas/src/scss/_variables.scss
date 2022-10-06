@@ -1,18 +1,15 @@
+// import's
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
 
+// variables
 $font-inter: "Inter", sans-serif;
 $font-roboto: "Roboto", sans-serif;
-
-$map-font-weights: 300, 400, 500, 600, 700;
-
-@each $label in $map-font-weights {
-  .fw-#{$label} {
-    font-weight: $label;
-  }
-}
-
+$list-alert-colors: "error", "warning", "warning-dark", "success", "success-dark", "gradient";
+$list-font-weights: 300, 400, 500, 600, 700;
+$list-gray-colors: 100, 200, 300, 400, 500, 600, 700;
 $list-primary-colors: 50, 100, 200, 300, 400, 500, 600;
 
+// variables - maps 
 $map-primary-colors: (
   "50": #f5f6ff,
   "100": #b4befa,
@@ -22,18 +19,6 @@ $map-primary-colors: (
   "500": #3e4daa,
   "600": #262f6a,
 );
-
-@each $label in $list-primary-colors {
-  .bg-primary-#{$label} {
-    background-color: map-get($map: $map-primary-colors, $key: #{$label});
-  }
-  .text-primary-#{$label} {
-    color: map-get($map: $map-primary-colors, $key: #{$label});
-  }
-}
-
-$list-gray-colors: 100, 200, 300, 400, 500, 600, 700;
-
 $map-gray-colors: (
   "100": #f0f0f2,
   "200": #d2d2d9,
@@ -43,19 +28,6 @@ $map-gray-colors: (
   "600": #494952,
   "700": #161620,
 );
-
-@each $label in $list-gray-colors {
-  .bg-gray-#{$label} {
-    background-color: map-get($map: $map-gray-colors, $key: #{$label});
-  }
-  .text-gray-#{$label} {
-    color: map-get($map: $map-gray-colors, $key: #{$label});
-  }
-}
-
-$list-alert-colors: "error", "warning", "warning-dark", "success",
-  "success-dark", "gradient";
-
 $map-alert-colors: (
   "error": #ea005a,
   "warning": #fca232,
@@ -66,6 +38,28 @@ $map-alert-colors: (
     linear-gradient(152.21deg, #090d68 21.15%, #ea005a 112.22%, #ffffff 112.22%),
 );
 
+// methods
+@each $label in $list-font-weights {
+  .fw-#{$label} {
+    font-weight: $label;
+  }
+}
+@each $label in $list-primary-colors {
+  .bg-primary-#{$label} {
+    background-color: map-get($map: $map-primary-colors, $key: #{$label});
+  }
+  .text-primary-#{$label} {
+    color: map-get($map: $map-primary-colors, $key: #{$label});
+  }
+}
+@each $label in $list-gray-colors {
+  .bg-gray-#{$label} {
+    background-color: map-get($map: $map-gray-colors, $key: #{$label});
+  }
+  .text-gray-#{$label} {
+    color: map-get($map: $map-gray-colors, $key: #{$label});
+  }
+}
 @each $label in $list-alert-colors {
   @if $label == "gradient" {
     .bg-alert-#{$label} {
@@ -82,6 +76,7 @@ $map-alert-colors: (
   }
 }
 
+// class
 .body-1 {
   font-size: 16px;
   font-weight: 400;
@@ -150,23 +145,3 @@ $map-alert-colors: (
   letter-spacing: 0px;
   line-height: 16px;
 }
-
-// $types-primary: 050, 100, 200, 300, 400, 500, 600;
-// $color-primary: (
-//   "primary-050": #f5f6ff,
-//   "primary-100": #b4befa,
-//   "primary-200": #a3aded,
-//   "primary-300": #7d8efb,
-//   "primary-400": #5168f4,
-//   "primary-500": #3e4daa,
-//   "primary-600": #262f6a,
-// );
-
-// @each $type in $types-primary {
-//   .bg-primary-#{$type} {
-//     background-color: map-get($map: $color-primary, $key: "primary-#{$type}");
-//   }
-//   .text-primary-#{$type} {
-//     color: map-get($map: $color-primary, $key: "primary-#{$type}");
-//   }
-// }
