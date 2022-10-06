@@ -1,0 +1,45 @@
+@import "../../scss/variables";
+
+.input {
+  border-radius: 5px;
+  border: solid 1.5px map-get($map: $map-gray-colors, $key: "200");
+  transition: 0.3s;
+  &:hover {
+    border-color: map-get($map: $map-gray-colors, $key: "300");
+  }
+  &:focus {
+    border-color: map-get($map: $map-primary-colors, $key: "400");
+    outline: none;
+    & + .clue {
+      height: fit-content;
+      opacity: 1;
+    }
+  }
+  &.error {
+    border-color: map-get($map: $map-alert-colors, $key: "error");
+    & + .clue {
+      color: map-get($map: $map-alert-colors, $key: "error");
+      height: fit-content;
+      opacity: 1;
+    }
+  }
+  &.success {
+    border-color: map-get($map: $map-alert-colors, $key: "success");
+  }
+  &[disabled] {
+    background-color: map-get($map: $map-gray-colors, $key: "100");
+    &::placeholder {
+      color: transparent;
+    }
+  }
+  &::placeholder {
+    color: map-get($map: $map-gray-colors, $key: "300");
+  }
+}
+
+.clue {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
