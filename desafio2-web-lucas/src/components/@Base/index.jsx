@@ -1,10 +1,10 @@
 import "./style.scss";
 const Base = () => {
   return (
-    <section>
+    <div>
       <p>Este é um componente base para ser usado por outros componentes.</p>
       <p>Lembre-se! Todo componente deve ser escrito com letra maiúscula!</p>
-    </section>
+    </div>
   );
 };
 export default Base;
