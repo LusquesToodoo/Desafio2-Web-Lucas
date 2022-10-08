@@ -1,13 +1,13 @@
 import "./style.scss";
 
 // boxShadow = 'lg' ou 'sm' - seleciona o tamanho do box-shadow.
-// buttonStyle = 'primary' ou 'outline' - seleciona o estilo de botão;
+// className = 'button-primary' ou 'button-outline' - seleciona o estilo de botão;
 // iconButton = '' ou 'iconButton' - define se o botão é do tipo with icon ou comum.
 // txtButton = '' ou '*texto*' - texto que aparece no conteúdo do botão.
 
 function selectButton({
   boxShadow = "sm",
-  buttonStyle = "primary",
+  className = "primary",
   iconButton = false,
   txtButton = "Button",
 }) {
@@ -15,7 +15,7 @@ function selectButton({
     <div>
       <button
         type="button"
-        className={`btn button-primary button-icon fw-700 fs-6 button-shadow-${boxShadow} w-100`}
+        className={`btn button-icon fw-700 fs-6 w-100 ${className}`}
       >
         <span
           className="spinner-border spinner-border"
@@ -32,10 +32,7 @@ function selectButton({
     </div>
   ) : (
     <div>
-      <button
-        type="button"
-        className={`btn button-${buttonStyle} fw-700 fs-6 button-shadow-${boxShadow} w-100`}
-      >
+      <button type="button" className={`btn fw-700 fs-6 w-100 ${className}`}>
         <span
           className="spinner-border spinner-border"
           role="status"

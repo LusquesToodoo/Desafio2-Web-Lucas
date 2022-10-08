@@ -1,0 +1,45 @@
+@import "../../scss/variables";
+
+.header {
+  background-image: linear-gradient(#fafbff, 50%, rgba(0, 0, 0, 0));
+  min-height: 100vh;
+
+  & .header-container {
+    max-width: 483px;
+    & .header-info {
+      max-width: 400px;
+    }
+  }
+}
+.main {
+  min-height: 100vh;
+  & .access-logo {
+    padding-bottom: 150px;
+  }
+
+  & .access-form-container {
+    max-width: 350px;
+  }
+
+  & #remember-password {
+    &:checked {
+      & + label[for="remember-password"] .remember-box {
+        background-color: map-get($map: $map-primary-colors, $key: "400");
+        border: 0 !important;
+      }
+    }
+    + label {
+      cursor: pointer;
+    }
+  }
+
+  & .remember-box {
+    background-image: url("../../../public/images/svg/remembet-password-checksvg.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 17px;
+    transition: 0.3s;
+    width: 17px;
+  }
+}

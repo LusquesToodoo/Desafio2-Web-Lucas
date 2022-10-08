@@ -6,9 +6,6 @@ const InputPassword = ({
   txtPlaceholder = "Placeholder",
   isDisabled,
   txtClue = "dica ou erro",
-  children,
-  event,
-  msg,
 }) => {
   const [type, setType] = useState("password");
   function showPassword(e) {

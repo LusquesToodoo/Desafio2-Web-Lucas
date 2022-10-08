@@ -6,7 +6,7 @@ import InputPassword from "../../components/InputPassword";
 
 const Components = () => {
   return (
-    <div>
+    <div className="w-25">
       <Input
         isDisabled="false"
         txtClue="dica ou erro"
@@ -62,8 +62,9 @@ const Components = () => {
         txtClue="Dica ou erro do dropdown"
       />
 
-      <Button txtButton="Button" buttonStyle="outline" />
-      <Button txtButton="Exportar lista" iconButton />
+      <Button txtButton="Button" className="button-primary" />
+      <Button txtButton="Button" className="button-outline mt-1" />
+      <Button txtButton="Exportar lista" className="button-primary" iconButton />
     </div>
   );
 };

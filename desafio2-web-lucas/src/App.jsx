@@ -4,17 +4,17 @@ import Components from "./pages/Components";
 import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
 import InputIcon from "./components/InputIcon";
+import Home from "./pages/Home"
 
 const App = () => {
   return (
     <>
-      <div className="w-25">
-        <Router>
-          <Routes>
-            <Route path="/components" element={<Components />} />
-          </Routes>
-        </Router>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/components" element={<Components />} />
+          <Route path="/" element={<Home/>}/>
+        </Routes>
+      </Router>
     </>
   );
 };
