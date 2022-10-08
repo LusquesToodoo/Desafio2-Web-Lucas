@@ -4,9 +4,9 @@ const Input = ({
   isDisabled,
   txtClue,
   txtInputClass,
-  txtLabel,
-  txtPlaceholder,
-  txtType,
+  txtLabel = "Label",
+  txtPlaceholder = "Placeholder",
+  txtType = "text",
   children,
 }) => {
   return (
@@ -14,7 +14,9 @@ const Input = ({
       <label className="input-label body-2 w-100">
         <p className="text-gray-500 mb-2">{txtLabel}</p>
         <input
-          className={`input p-3 w-100 ${txtInputClass} ${children ? 'pe-5' : ''}`}
+          className={`input p-3 w-100 ${txtInputClass} ${
+            children ? "pe-5" : ""
+          }`}
           type={txtType}
           placeholder={txtPlaceholder}
           isDisabled={isDisabled}

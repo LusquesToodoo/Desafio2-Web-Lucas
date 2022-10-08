@@ -1,0 +1,23 @@
+@import "../../scss/variables";
+
+.input {
+  &:hover,
+  &:focus {
+    & ~ .eye {
+      opacity: 1;
+    }
+  }
+}
+
+.eye {
+  cursor: pointer;
+  height: 50px;
+  opacity: 0;
+  right: 0;
+  top: 24px;
+  transition: 0.3s;
+  width: 48px;
+  & img{
+    width: 20px;
+  }
+}

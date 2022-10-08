@@ -4,8 +4,8 @@ const Dropdown = ({
   isDisabled,
   optionsList,
   txtClue,
-  txtLabel,
-  txtPlaceholder,
+  txtLabel = "Label",
+  txtPlaceholder = "Placeholder",
 }) => {
   return (
     <div className="body-2">
@@ -18,8 +18,9 @@ const Dropdown = ({
         >
           <option
             className="input-placeholder text-gray-300"
+            defaultValue
+            value
             disabled="disabled"
-            selected
           >
             {txtPlaceholder}
           </option>

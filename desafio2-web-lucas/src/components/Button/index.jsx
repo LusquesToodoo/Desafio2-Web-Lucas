@@ -32,19 +32,17 @@ function selectButton({
     </div>
   ) : (
     <div>
-      <div>
-        <button
-          type="button"
-          className={`btn button-${buttonStyle} fw-700 fs-6 button-shadow-${boxShadow} w-100`}
-        >
-          <span
-            className="spinner-border spinner-border"
-            role="status"
-            aria-hidden="true"
-          ></span>
-          <span className="button-info">{txtButton}</span>
-        </button>
-      </div>
+      <button
+        type="button"
+        className={`btn button-${buttonStyle} fw-700 fs-6 button-shadow-${boxShadow} w-100`}
+      >
+        <span
+          className="spinner-border spinner-border"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        <span className="button-info">{txtButton}</span>
+      </button>
     </div>
   );
 }
