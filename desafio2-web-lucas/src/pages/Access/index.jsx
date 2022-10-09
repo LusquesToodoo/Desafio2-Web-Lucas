@@ -1,9 +1,7 @@
-import AccessContainer from "./components/AccessContainer";
-import HomeHeader from "./components/Home/HomeHeader";
-import HomeMain from "./components/Home/HomeMain";
+import Home from "./components/Home";
 import "./style.scss";
 
-const Home = () => {
-  return <AccessContainer header={<HomeHeader />} main={<HomeMain />} />;
+const Access = () => {
+  return <Home />;
 };
-export default Home;
+export default Access;

@@ -21,6 +21,7 @@ const HomeMain = () => {
         {/* Inputs */}
         <div className="mb-2">
           <Input
+            required
             txtClue="Informe seu endereço de email"
             txtLabel="Email*"
             txtPlaceholder="ex. johndoe@toodoo.com.br"
@@ -29,6 +30,7 @@ const HomeMain = () => {
         </div>
         <div>
           <InputPassword
+            required
             txtClue="Informe sua senha"
             txtLabel="Senha*"
             txtPlaceholder="ao menos 8 caracteres"
