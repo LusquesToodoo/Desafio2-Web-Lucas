@@ -59,6 +59,7 @@
   background-color: map-get($map: $map-gray-colors, $key: "300");
 
   &:hover {
+    @extend .button-shadow-lg;
     background-color: map-get($map: $map-primary-colors, $key: "400");
   }
 }

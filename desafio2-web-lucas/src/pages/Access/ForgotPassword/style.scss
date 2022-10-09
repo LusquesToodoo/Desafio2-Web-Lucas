@@ -1,0 +1,12 @@
+.page-forgot-password {
+  .header {
+    & .header-container {
+      max-width: 570px;
+    }
+  }
+  .main {
+    & .access-logo {
+      padding-bottom: 150px;
+    }
+  }
+}

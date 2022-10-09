@@ -1,4 +1,4 @@
-import AccessContainer from "../AccessContainer";
+import AccessContainer from "../components/AccessContainer";
 import HomeHeader from "./HomeHeader";
 import HomeMain from "./HomeMain";
 import "./style.scss";

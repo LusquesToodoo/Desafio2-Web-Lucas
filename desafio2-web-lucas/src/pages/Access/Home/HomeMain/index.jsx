@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Button from "../../../../../components/Button";
-import Input from "../../../../../components/Input";
-import InputPassword from "../../../../../components/InputPassword";
+import Button from "../../../../components/Button";
+import Input from "../../../../components/Input";
+import InputPassword from "../../../../components/InputPassword";
 import "./Style.scss";
 
 const HomeMain = () => {
