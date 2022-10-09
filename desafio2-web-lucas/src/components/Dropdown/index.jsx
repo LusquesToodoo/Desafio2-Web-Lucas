@@ -1,7 +1,6 @@
 import "./style.scss";
 
 const Dropdown = ({
-  isDisabled,
   optionsList,
   txtClue,
   txtLabel = "Label",
@@ -14,7 +13,6 @@ const Dropdown = ({
         <select
           className="input form-select shadow-none body-2 p-3"
           id="inputGroupSelect01"
-          isDisabled={isDisabled}
         >
           <option
             className="input-placeholder text-gray-300"

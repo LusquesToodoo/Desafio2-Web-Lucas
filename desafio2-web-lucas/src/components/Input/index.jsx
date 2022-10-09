@@ -1,13 +1,14 @@
 import "./style.scss";
 
 const Input = ({
-  isDisabled,
+  children,
+  disabled,
+  required,
   txtClue,
-  txtInputClass,
+  txtInputClass = "",
   txtLabel = "Label",
   txtPlaceholder = "Placeholder",
   txtType = "text",
-  children,
 }) => {
   return (
     <div>
@@ -17,9 +18,10 @@ const Input = ({
           className={`input p-3 w-100 ${txtInputClass} ${
             children ? "pe-5" : ""
           }`}
-          type={txtType}
+          disabled={disabled}
           placeholder={txtPlaceholder}
-          isDisabled={isDisabled}
+          required={required}
+          type={txtType}
         />
         <p className="clue caption fw-500 text-gray-400 my-1">{txtClue}</p>
         <figure className="input-icon m-0">{children}</figure>

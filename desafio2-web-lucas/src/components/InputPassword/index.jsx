@@ -2,10 +2,11 @@ import { useState } from "react";
 import "./style.scss";
 
 const InputPassword = ({
+  disabled,
+  required,
+  txtClue = "dica ou erro",
   txtLabel = "Label - password",
   txtPlaceholder = "Placeholder",
-  isDisabled,
-  txtClue = "dica ou erro",
 }) => {
   const [type, setType] = useState("password");
   function showPassword(e) {
@@ -19,9 +20,9 @@ const InputPassword = ({
           <p className="text-gray-500 mb-2">{txtLabel}</p>
           <input
             className="input p-3 w-100 pe-5"
-            isDisabled={isDisabled}
+            disabled={disabled}
             placeholder={txtPlaceholder}
-            required
+            required={required}
             type={type}
           />
           <p className="clue caption fw-500 text-gray-400 my-1">{txtClue}</p>

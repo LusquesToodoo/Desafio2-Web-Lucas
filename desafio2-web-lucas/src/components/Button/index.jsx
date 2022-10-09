@@ -7,7 +7,7 @@ import "./style.scss";
 
 function selectButton({
   boxShadow = "sm",
-  className = "primary",
+  className = "button-primary",
   iconButton = false,
   txtButton = "Button",
 }) {
@@ -32,7 +32,7 @@ function selectButton({
     </div>
   ) : (
     <div>
-      <button type="button" className={`btn fw-700 fs-6 w-100 ${className}`}>
+      <button type="submit" className={`btn fw-700 fs-6 w-100 ${className}`}>
         <span
           className="spinner-border spinner-border"
           role="status"

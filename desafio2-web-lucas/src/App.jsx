@@ -4,15 +4,16 @@ import Components from "./pages/Components";
 import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
 import InputIcon from "./components/InputIcon";
-import Home from "./pages/Home"
+import Home from "./pages/Access";
 
 const App = () => {
   return (
     <>
       <Router>
         <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/forgot-password" element={<>oie</>} />
           <Route path="/components" element={<Components />} />
-          <Route path="/" element={<Home/>}/>
         </Routes>
       </Router>
     </>

@@ -8,7 +8,6 @@ const Components = () => {
   return (
     <div className="w-25">
       <Input
-        isDisabled="false"
         txtClue="dica ou erro"
         txtInputClass=""
         txtLabel="label - default"
@@ -17,7 +16,6 @@ const Components = () => {
       />
 
       <Input
-        isDisabled="true"
         txtClue="dica ou erro"
         txtInputClass=""
         txtLabel="label - disabled"
@@ -26,7 +24,6 @@ const Components = () => {
       />
 
       <Input
-        isDisabled="false"
         txtClue="dica ou erro"
         txtInputClass="error"
         txtLabel="label - error"
@@ -35,7 +32,6 @@ const Components = () => {
       />
 
       <Input
-        isDisabled="false"
         txtClue="dica ou erro"
         txtInputClass="success"
         txtLabel="label - success"
@@ -43,7 +39,6 @@ const Components = () => {
         txtType="text"
       />
       <Input
-        isDisabled="false"
         txtClue="Aqui vamos adicionar o ícone"
         txtInputClass="error"
         txtLabel="label - children"
@@ -53,7 +48,7 @@ const Components = () => {
         <InputIcon src="svg/user-icon.svg" alt="user" teste="oie" />
       </Input>
 
-      <InputPassword msg="oie"/>
+      <InputPassword msg="oie" />
 
       <Dropdown
         txtLabel={"Label"}
@@ -64,7 +59,11 @@ const Components = () => {
 
       <Button txtButton="Button" className="button-primary" />
       <Button txtButton="Button" className="button-outline mt-1" />
-      <Button txtButton="Exportar lista" className="button-primary" iconButton />
+      <Button
+        txtButton="Exportar lista"
+        className="button-primary"
+        iconButton
+      />
     </div>
   );
 };
