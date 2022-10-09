@@ -61,7 +61,7 @@ const Components = () => {
       <Button txtButton="Button" className="button-outline mt-1" />
       <Button
         txtButton="Exportar lista"
-        className="button-primary"
+        className="button-gray"
         iconButton
       />
     </div>

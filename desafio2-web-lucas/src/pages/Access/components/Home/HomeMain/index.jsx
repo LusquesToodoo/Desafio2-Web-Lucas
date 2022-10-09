@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import Button from "../../../../../components/Button";
 import Input from "../../../../../components/Input";
 import InputPassword from "../../../../../components/InputPassword";
+import "./Style.scss";
 
 const HomeMain = () => {
   return (
     <aside className="access-form-container mx-auto ms-xl-5 w-100">
-      <figure className="access-logo">
+      <figure className="access-logo m-0">
         <img src="./images/png/logo_toodoo.png" alt="Toodoo" />
       </figure>
       <div>
@@ -57,14 +58,14 @@ const HomeMain = () => {
             </Link>
           </div>
         </div>
-        <div className="mt-2 mb-5">
-          <Button txtButton="Entrar" className="button-primary mt-4" />
+        <div className="mt-2">
+          <Button txtButton="Entrar" className="button-gray mt-4" />
         </div>
-        <p className="text-center">
+        <p className="contact text-center text-gray-400">
           Precisa de Ajuda?
           <Link
             className="ms-1 text-decoration-none text-primary-400"
-            to={"/components"}
+            to={"/contact"}
           >
             Entre em contato.
           </Link>
