@@ -4,14 +4,15 @@
 // variables
 $font-inter: "Inter", sans-serif;
 $font-roboto: "Roboto", sans-serif;
-$list-alert-colors: "error", "warning", "warning-dark", "success", "success-dark", "gradient";
+$list-alert-colors: "error", "warning", "warning-dark", "success",
+  "success-dark", "gradient";
 $list-font-weights: 300, 400, 500, 600, 700;
 $list-gray-colors: 100, 200, 300, 400, 500, 600, 700;
 $list-primary-colors: 50, 100, 200, 300, 400, 500, 600;
 $text-dark: #000;
 $text-light: #fff;
 
-// variables - maps 
+// variables - maps
 $map-primary-colors: (
   "50": #f5f6ff,
   "100": #b4befa,
@@ -78,9 +79,15 @@ $map-alert-colors: (
   }
 }
 
-// tags
+// Mixin's
+@mixin media($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
 
-body{
+// tags
+body {
   font-family: $font-inter;
 }
 

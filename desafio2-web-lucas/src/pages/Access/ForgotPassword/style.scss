@@ -1,12 +1,23 @@
-.page-forgot-password {
+.page-forgot-password,
+.page-change-password {
   .header {
     & .header-container {
       max-width: 570px;
     }
   }
   .main {
+    padding-top: 0;
     & .access-logo {
+      left: 0;
       padding-bottom: 150px;
+      position: absolute;
+      top: 12.2%;
+    }
+    & .access-form-container {
+      align-items: center;
+      display: flex;
+      min-height: 100vh;
+      position: relative;
     }
   }
 }

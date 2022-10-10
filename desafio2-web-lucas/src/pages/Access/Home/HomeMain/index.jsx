@@ -59,7 +59,11 @@ const HomeMain = () => {
           </div>
         </div>
         <div className="mt-2">
-          <Button txtButton="Entrar" className="button-gray mt-4" />
+          <Button
+            txtButton="Entrar"
+            className="button-gray mt-4"
+            type="submit"
+          />
         </div>
         <p className="contact text-center text-gray-400">
           Precisa de Ajuda?
