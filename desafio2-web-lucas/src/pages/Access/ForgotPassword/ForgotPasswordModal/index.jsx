@@ -13,7 +13,7 @@ const ForgotPasswordModal = ({ dataBsTarget }) => {
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header p-3 pb-2 border-0">
-            <Link to={"/"} className="btn-close-x d-block ms-auto">
+            <Link to="/change-password" className="btn-close-x d-block ms-auto">
               <button
                 type="button"
                 class="btn-close p-0"
@@ -33,7 +33,7 @@ const ForgotPasswordModal = ({ dataBsTarget }) => {
               <h5 className="text-primary-400">
                 Verifique sua caixa de entrada
               </h5>
-              <p className="mx-auto mb-5">
+              <p className="mx-auto body-2 mb-5">
                 Enviamos um email com instruções para redefinir sua senha.
               </p>
             </div>

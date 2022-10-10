@@ -1,4 +1,7 @@
 .page-forgot-password {
+  & .modal-dialog {
+    max-width: 370px;
+  }
   & .modal-info {
     & p {
       max-width: 232px;

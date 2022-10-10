@@ -6,14 +6,16 @@ import Input from "./components/Input";
 import InputIcon from "./components/InputIcon";
 import Home from "./pages/Access/Home";
 import ForgotPassword from "./pages/Access/ForgotPassword";
+import ChangePassword from "./pages/Access/ChangePassword";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/components" element={<Components />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </Router>
   );
