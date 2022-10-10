@@ -4,6 +4,12 @@ import HomeMain from "./HomeMain";
 import "./style.scss";
 
 const Home = () => {
-  return <AccessContainer header={<HomeHeader />} main={<HomeMain />} />;
+  return (
+    <AccessContainer
+      header={<HomeHeader />}
+      main={<HomeMain />}
+      page="page-home"
+    />
+  );
 };
 export default Home;

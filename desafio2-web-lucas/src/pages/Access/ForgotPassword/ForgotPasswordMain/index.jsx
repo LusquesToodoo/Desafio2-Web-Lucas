@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../../../../components/Button";
+import ForgotPasswordModal from "../ForgotPasswordModal";
 import Input from "../../../../components/Input";
 
 const ForgotPasswordMain = () => {
@@ -30,7 +31,7 @@ const ForgotPasswordMain = () => {
         <div className="mb-2">
           <Input
             className="text-gray-400"
-            required
+            // required
             txtClue="Informe seu endereço de email"
             txtLabel="Email*"
             txtPlaceholder="ex. johndoe@toodoo.com.br"
@@ -38,7 +39,13 @@ const ForgotPasswordMain = () => {
           />
         </div>
         <div className="mt-2">
-          <Button txtButton="Enviar" className="button-gray mt-4" />
+          <Button
+            className="button-gray mt-4"
+            dataBsTarget="#forgotPasswordModal"
+            modal={<ForgotPasswordModal dataBsTarget="forgotPasswordModal"/>}
+            txtButton="Enviar"
+            
+          />
         </div>
       </form>
     </aside>

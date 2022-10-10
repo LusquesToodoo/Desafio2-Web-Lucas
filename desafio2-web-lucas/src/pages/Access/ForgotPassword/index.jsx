@@ -5,11 +5,13 @@ import ForgotPasswordMain from "./ForgotPasswordMain";
 
 const ForgotPassword = () => {
   return (
-    <AccessContainer
-      header={<ForgotPasswordHeader />}
-      main={<ForgotPasswordMain />}
-      page="page-forgot-password"
-    />
+    <>
+      <AccessContainer
+        header={<ForgotPasswordHeader />}
+        main={<ForgotPasswordMain />}
+        page="page-forgot-password"
+      />
+    </>
   );
 };
 export default ForgotPassword;

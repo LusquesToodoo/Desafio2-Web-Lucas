@@ -1,3 +1,4 @@
+import ForgotPasswordModal from "../../pages/Access/ForgotPassword/ForgotPasswordModal";
 import "./style.scss";
 
 // boxShadow = 'lg' ou 'sm' - seleciona o tamanho do box-shadow.
@@ -6,16 +7,20 @@ import "./style.scss";
 // txtButton = '' ou '*texto*' - texto que aparece no conteúdo do botão.
 
 function selectButton({
-  boxShadow = "sm",
   className = "button-primary",
+  dataBsTarget = "",
   iconButton = false,
+  modal,
   txtButton = "Button",
+  type = "button",
 }) {
-  return iconButton ? (
+  const button = iconButton ? (
     <div>
       <button
-        type="button"
         className={`btn button-icon fw-700 fs-6 w-100 ${className}`}
+        data-bs-target={dataBsTarget}
+        data-bs-toggle="modal"
+        type={type}
       >
         <span
           className="spinner-border spinner-border"
@@ -32,7 +37,12 @@ function selectButton({
     </div>
   ) : (
     <div>
-      <button type="submit" className={`btn fw-700 fs-6 w-100 ${className}`}>
+      <button
+        className={`btn fw-700 fs-6 w-100 ${className}`}
+        data-bs-target={dataBsTarget}
+        data-bs-toggle="modal"
+        type={type}
+      >
         <span
           className="spinner-border spinner-border"
           role="status"
@@ -42,6 +52,8 @@ function selectButton({
       </button>
     </div>
   );
+  const buttonModal = modal ? modal : "";
+  return [button, buttonModal];
 }
 
 const Button = (props) => {
