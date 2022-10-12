@@ -1,15 +1,32 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
 import InputPassword from "../../../../components/InputPassword";
 
 const HomeForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("marcos.santos@toodoo.com.br");
+  const [password, setPassword] = useState("abelha@1234");
 
-  const validateLogin = () => {
-    alert("opa");
+  const validateLogin = async (e) => {
+    e.preventDefault();
+    const user = {
+      email: email,
+      password: password,
+    };
+    let userResponse;
+    await axios
+      .post("https://erm-api.azurewebsites.net/Account/login", user)
+      .then((response) => (userResponse = response))
+      .catch((error) => (userResponse = error.response));
+
+    if (userResponse.status === 200) {
+      console.log("ok");
+    } else {
+      console.log("not ok");
+    }
+    // console.log(userResponse.statusText);
   };
 
   return (

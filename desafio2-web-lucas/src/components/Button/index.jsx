@@ -8,7 +8,7 @@ import "./style.scss";
 
 function selectButton({
   className = "button-primary",
-  dataBsTarget = "",
+  dataBsTarget,
   iconButton = false,
   modal,
   txtButton = "Button",
@@ -37,7 +37,7 @@ function selectButton({
     <button
       className={`btn fw-700 fs-6 w-100 ${className}`}
       data-bs-target={dataBsTarget}
-      data-bs-toggle="modal"
+      data-bs-toggle={!!dataBsTarget && "modal"}
       type={type}
     >
       <span
