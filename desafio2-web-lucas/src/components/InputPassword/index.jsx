@@ -7,6 +7,8 @@ const InputPassword = ({
   txtClue = "dica ou erro",
   txtLabel = "Label - password",
   txtPlaceholder = "Placeholder",
+  updatePassword,
+  value = "oie",
 }) => {
   const [type, setType] = useState("password");
   function showPassword(e) {
@@ -21,9 +23,11 @@ const InputPassword = ({
           <input
             className="input p-3 w-100 pe-5"
             disabled={disabled}
+            onChange={(e) => updatePassword(e.target.value)}
             placeholder={txtPlaceholder}
             required={required}
             type={type}
+            value={value}
           />
           <p className="clue caption fw-500 text-gray-400 my-1">{txtClue}</p>
           <label
