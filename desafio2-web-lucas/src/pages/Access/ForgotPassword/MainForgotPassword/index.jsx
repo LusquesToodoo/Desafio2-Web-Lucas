@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../../../../components/Button";
-import ForgotPasswordModal from "../ForgotPasswordModal";
+import ModalForgotPassword from "../ModalForgotPassword";
 import Input from "../../../../components/Input";
 
 const ForgotPasswordMain = () => {
@@ -42,8 +42,8 @@ const ForgotPasswordMain = () => {
           <div className="mt-2">
             <Button
               className="button-gray mt-4"
-              dataBsTarget="#forgotPasswordModal"
-              modal={<ForgotPasswordModal dataBsTarget="forgotPasswordModal" />}
+              dataBsTarget="#modalForgotPassword"
+              modal={<ModalForgotPassword dataBsTarget="modalForgotPassword" />}
               txtButton="Enviar"
             />
           </div>

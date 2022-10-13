@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
 import InputPassword from "../../../../components/InputPassword";
-import HomeForm from "../HomeForm";
+import FormLogin from "../FormLogin";
 import "./Style.scss";
 
-const HomeMain = () => {
+const MainLogin = () => {
   return (
     <aside className="access-form-container mx-auto ms-xl-5 w-100">
       <figure className="access-logo m-0">
@@ -20,7 +20,7 @@ const HomeMain = () => {
         </h2>
       </div>
 
-      <HomeForm />
+      <FormLogin />
 
       <p className="contact text-center text-gray-400">
         Precisa de Ajuda?
@@ -34,4 +34,4 @@ const HomeMain = () => {
     </aside>
   );
 };
-export default HomeMain;
+export default MainLogin;

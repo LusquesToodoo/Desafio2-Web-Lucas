@@ -1,6 +1,6 @@
 import "./style.scss";
 
-const HomeHeader = () => {
+const HeaderLogin = () => {
   return (
     <div className="header-container">
       <figure className="w-100">
@@ -19,4 +19,4 @@ const HomeHeader = () => {
     </div>
   );
 };
-export default HomeHeader;
+export default HeaderLogin;

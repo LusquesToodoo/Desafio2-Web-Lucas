@@ -1,4 +1,3 @@
-import ForgotPasswordModal from "../../pages/Access/ForgotPassword/ForgotPasswordModal";
 import "./style.scss";
 
 // boxShadow = 'lg' ou 'sm' - seleciona o tamanho do box-shadow.

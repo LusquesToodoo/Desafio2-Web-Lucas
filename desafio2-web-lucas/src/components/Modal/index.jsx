@@ -1,7 +1,6 @@
-import "./style.scss";
 import { Link } from "react-router-dom";
 
-const ForgotPasswordModal = ({ dataBsTarget }) => {
+const Modal = ({ dataBsTarget }) => {
   return (
     <div
       aria-hidden="true"
@@ -25,7 +24,7 @@ const ForgotPasswordModal = ({ dataBsTarget }) => {
           <div class="modal-body p-0">
             <figure className="m-0 mx-auto w-100 text-center mb-4">
               <img
-                src="./images/svg/forgotPasswordModal.svg"
+                src="./images/svg/ModalForgotPassword.svg"
                 alt="email enviado"
               />
             </figure>
@@ -43,4 +42,4 @@ const ForgotPasswordModal = ({ dataBsTarget }) => {
     </div>
   );
 };
-export default ForgotPasswordModal;
+export default Modal;

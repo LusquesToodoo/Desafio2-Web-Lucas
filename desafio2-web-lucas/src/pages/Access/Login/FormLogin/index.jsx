@@ -5,7 +5,7 @@ import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
 import InputPassword from "../../../../components/InputPassword";
 
-const HomeForm = () => {
+const FormLogin = () => {
   const [email, setEmail] = useState("marcos.santos@toodoo.com.br");
   const [password, setPassword] = useState("abelha@1234");
 
@@ -79,4 +79,4 @@ const HomeForm = () => {
     </form>
   );
 };
-export default HomeForm;
+export default FormLogin;
