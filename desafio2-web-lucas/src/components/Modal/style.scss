@@ -1,0 +1,30 @@
+@import "../../scss/variables";
+
+.modal-dialog {
+  max-width: 370px;
+  width: 100%;
+  & .modal-body {
+    padding-bottom: 40px;
+    & .modal-info {
+      h5 {
+        color: map-get($map: $map-primary-colors, $key: "400");
+        &.success{
+          color: map-get($map: $map-alert-colors, $key: "success");
+        }
+        &.error{
+          color: map-get($map: $map-alert-colors, $key: "error");
+        }
+      }
+      & p {
+        max-width: 232px;
+      }
+    }
+    & .button-modal{
+      max-width: 208px;
+      & .btn{
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}

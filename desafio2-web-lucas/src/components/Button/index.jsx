@@ -10,6 +10,7 @@ function selectButton({
   dataBsTarget,
   iconButton = false,
   modal,
+  onClick,
   txtButton = "Button",
   type = "button",
 }) {
@@ -18,6 +19,7 @@ function selectButton({
       className={`btn button-icon fw-700 fs-6 w-100 ${className}`}
       data-bs-target={dataBsTarget}
       data-bs-toggle="modal"
+      onClick={onClick}
       type={type}
     >
       <span
@@ -37,6 +39,7 @@ function selectButton({
       className={`btn fw-700 fs-6 w-100 ${className}`}
       data-bs-target={dataBsTarget}
       data-bs-toggle={!!dataBsTarget && "modal"}
+      onClick={onClick}
       type={type}
     >
       <span

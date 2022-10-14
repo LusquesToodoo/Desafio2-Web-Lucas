@@ -1,4 +1,4 @@
-const ForgotPasswordHeader = () => {
+const HeaderForgotPassword = () => {
   return (
     <div className="header-container">
       <figure className="w-100">
@@ -11,4 +11,4 @@ const ForgotPasswordHeader = () => {
     </div>
   );
 };
-export default ForgotPasswordHeader;
+export default HeaderForgotPassword;

@@ -1,45 +1,69 @@
+import "./style.scss";
 import { Link } from "react-router-dom";
+import Button from "../Button";
+import { useState } from "react";
 
-const Modal = ({ dataBsTarget }) => {
+const Modal = ({
+  alt = "",
+  dataBsTarget = "",
+  href = "",
+  src,
+  statusModal = "",
+  titleModal = "Parturient enim sit id cras.",
+  txtButton,
+  txtModal = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed.",
+}) => {
   return (
-    <div
-      aria-hidden="true"
-      aria-labelledby={`${dataBsTarget}`}
-      className="modal fade"
-      id={`${dataBsTarget}`}
-      tabindex="-1"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header p-3 pb-2 border-0">
-            <Link to="/change-password" className="btn-close-x d-block ms-auto">
-              <button
-                type="button"
-                class="btn-close p-0"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </Link>
-          </div>
-          <div class="modal-body p-0">
-            <figure className="m-0 mx-auto w-100 text-center mb-4">
-              <img
-                src="./images/svg/ModalForgotPassword.svg"
-                alt="email enviado"
-              />
-            </figure>
-            <div className="text-center text-gray-400 modal-info">
-              <h5 className="text-primary-400">
-                Verifique sua caixa de entrada
-              </h5>
-              <p className="mx-auto body-2 mb-5">
-                Enviamos um email com instruções para redefinir sua senha.
-              </p>
+    <>
+      <div
+        aria-hidden="true"
+        aria-labelledby="staticBackdropLabel"
+        className={`modal fade ${statusModal}`}
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        id={dataBsTarget}
+        tabIndex="-1"
+      >
+        <div className="h-100 d-flex">
+          <div className="modal-dialog m-auto">
+            <div className="modal-content border-0">
+              <div className="modal-header border-0 p-4 pb-1">
+                <Link className="button-close d-block ms-auto" to={href}>
+                  <span
+                    aria-label="Close"
+                    className="btn-close d-block"
+                    data-bs-dismiss="modal"
+                    type="button"
+                  ></span>
+                </Link>
+              </div>
+              <div className="modal-body pt-0 text-center">
+                <figure className="mb-4">
+                  <img src={`./images/${src}`} alt={alt} />
+                </figure>
+                <div className="modal-info">
+                  <h5 className={`title mb-2 ${statusModal}`}>{titleModal}</h5>
+                  <p className="body-2 text-gray-400 my-0 mx-auto">
+                    {txtModal}
+                  </p>
+                </div>
+                <div
+                  className={`${
+                    txtButton ? "button-modal mx-auto mt-4" : "d-none"
+                  }`}
+                >
+                  <Link className="button-close d-block ms-auto" to={href}>
+                    <span aria-label="Close" data-bs-dismiss="modal">
+                      <Button txtButton={txtButton} />
+                    </span>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Modal;

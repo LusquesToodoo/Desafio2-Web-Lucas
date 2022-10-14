@@ -1,13 +1,18 @@
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
 import InputPassword from "../../../../components/InputPassword";
+import Modal from "../../../../components/Modal";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("marcos.santos@toodoo.com.br");
-  const [password, setPassword] = useState("abelha@1234");
+  const [password, setPassword] = useState("abelha@12345");
+  const [modalTitle, setModalTitle] = useState(undefined);
+  const [modalText, setModalText] = useState(undefined);
+  const [statusModal, setStatusModal] = useState("d-none");
+  const navigate = useNavigate();
 
   const validateLogin = async (e) => {
     e.preventDefault();
@@ -15,18 +20,45 @@ const FormLogin = () => {
       email: email,
       password: password,
     };
-    let userResponse;
+    setStatusModal("d-none");
+
     await axios
       .post("https://erm-api.azurewebsites.net/Account/login", user)
-      .then((response) => (userResponse = response))
-      .catch((error) => (userResponse = error.response));
+      .then((response) => {
+        navigate("/components");
+        const modalBackdrop = document.querySelector(".modal-backdrop.show");
+        const rememberPassword =
+          document.querySelector("#remember-password").checked;
+        modalBackdrop.parentNode.removeChild(modalBackdrop);
+        setTimeout(() => {
+          const modal = document.querySelectorAll(".modal.d-none");
+          modal.forEach((element) => {
+            element.parentNode.removeChild(element);
+          });
+        }, 100);
 
-    if (userResponse.status === 200) {
-      console.log("ok");
-    } else {
-      console.log("not ok");
+        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
+        rememberPassword
+          ? localStorage.setItem("token", response.data)
+          : sessionStorage.setItem("token", response.data);
+      })
+      .catch((error) => {
+        setStatusModal("error");
+        setModalTitle(`Error ${error.response.data.status}`);
+        setModalText(`${error.response.data.title}`);
+      });
+    // setEmail("");
+    // setPassword("");
+  };
+
+  const validateInputs = () => {
+    if (!email || !password) {
+      setStatusModal("error");
+      setModalTitle("Campo vazio");
+      setModalText("Para prosseguir preencha todos os campos obrigatórios.");
+      return;
     }
-    // console.log(userResponse.statusText);
   };
 
   return (
@@ -74,7 +106,29 @@ const FormLogin = () => {
         </div>
       </div>
       <div className="mt-2">
-        <Button txtButton="Entrar" className="button-gray mt-4" type="submit" />
+        <Button
+          className="button-gray mt-4"
+          dataBsTarget="#modalForgotPassword"
+          txtButton="Entrar"
+          type="submit"
+          onClick={validateInputs}
+          modal={
+            <Modal
+              alt="Error"
+              dataBsTarget="modalForgotPassword"
+              href="#"
+              src={
+                statusModal
+                  ? `svg/modal-status-${statusModal}.svg`
+                  : "svg/modalForgotPassword.svg"
+              }
+              statusModal={statusModal}
+              titleModal={modalTitle}
+              txtModal={modalText}
+              // txtButton={"pode crê"} // sem esse atributo o botão não existe.
+            />
+          }
+        />
       </div>
     </form>
   );

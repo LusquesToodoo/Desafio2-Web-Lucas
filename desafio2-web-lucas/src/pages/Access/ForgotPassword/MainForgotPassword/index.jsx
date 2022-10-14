@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import Button from "../../../../components/Button";
-import ModalForgotPassword from "../ModalForgotPassword";
 import Input from "../../../../components/Input";
+import Modal from "../../../../components/Modal";
 
-const ForgotPasswordMain = () => {
+const MainForgotPassword = () => {
   return (
     <aside className="access-form-container mx-auto ms-xl-5 w-100">
       <figure className="access-logo m-0">
@@ -42,8 +42,18 @@ const ForgotPasswordMain = () => {
           <div className="mt-2">
             <Button
               className="button-gray mt-4"
-              dataBsTarget="#modalForgotPassword"
-              modal={<ModalForgotPassword dataBsTarget="modalForgotPassword" />}
+              dataBsTarget="#email-sent"
+              modal={
+                <Modal
+                  alt="mensagem enviada"
+                  className="success"
+                  dataBsTarget="email-sent"
+                  src="svg/emailSent.svg"
+                  titleModal="Verifique sua caixa de entrada"
+                  txtModal="Enviamos um email com instruções para redefinir sua senha."
+                  href="/change-password"
+                />
+              }
               txtButton="Enviar"
             />
           </div>
@@ -52,4 +62,4 @@ const ForgotPasswordMain = () => {
     </aside>
   );
 };
-export default ForgotPasswordMain;
+export default MainForgotPassword;

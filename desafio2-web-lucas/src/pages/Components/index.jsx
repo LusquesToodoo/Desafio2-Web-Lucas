@@ -1,10 +1,13 @@
+import { useState } from "react";
 import Button from "../../components/Button";
 import Dropdown from "../../components/Dropdown";
 import Input from "../../components/Input";
 import InputIcon from "../../components/InputIcon";
 import InputPassword from "../../components/InputPassword";
+import Modal from "../../components/Modal";
 
 const Components = () => {
+  const [statusModal, setStatusModal] = useState("error");
   return (
     <div className="w-25">
       <Input
@@ -59,10 +62,23 @@ const Components = () => {
 
       <Button txtButton="Button" className="button-primary" />
       <Button txtButton="Button" className="button-outline mt-1" />
+      <Button txtButton="Exportar lista" className="button-gray" iconButton />
       <Button
-        txtButton="Exportar lista"
-        className="button-gray"
-        iconButton
+        className="button-gray mt-4"
+        dataBsTarget="#modalForgotPassword"
+        modal={
+          <Modal
+            alt="mensagem enviada"
+            dataBsTarget="modalForgotPassword"
+            href=""
+            src={statusModal ? `svg/modal-status-${statusModal}.svg` : ""}
+            statusModal={statusModal}
+            titleModal="Verifique sua caixa de entrada"
+            // txtButton={"pode crê"} // sem esse atributo o botão não existe.
+            txtModal="Enviamos um email com instruções para redefinir sua senha."
+          />
+        }
+        txtButton="Enviar"
       />
     </div>
   );
