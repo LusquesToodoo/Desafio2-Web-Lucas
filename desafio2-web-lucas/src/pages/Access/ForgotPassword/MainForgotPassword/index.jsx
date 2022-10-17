@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import Button from "../../../../components/Button";
-import Input from "../../../../components/Input";
-import Modal from "../../../../components/Modal";
+import FormForgotPassword from "../FormForgotPassword";
 
 const MainForgotPassword = () => {
   return (
@@ -27,37 +25,7 @@ const MainForgotPassword = () => {
             para receber o link de confirmação.
           </p>
         </div>
-        <form className="" action="">
-          {/* Inputs */}
-          <div className="mb-2">
-            <Input
-              className="text-gray-400"
-              // required
-              txtClue="Informe seu endereço de email"
-              txtLabel="Email*"
-              txtPlaceholder="ex. johndoe@toodoo.com.br"
-              txtType="email"
-            />
-          </div>
-          <div className="mt-2">
-            <Button
-              className="button-gray mt-4"
-              dataBsTarget="#email-sent"
-              modal={
-                <Modal
-                  alt="mensagem enviada"
-                  className="success"
-                  dataBsTarget="email-sent"
-                  src="svg/emailSent.svg"
-                  titleModal="Verifique sua caixa de entrada"
-                  txtModal="Enviamos um email com instruções para redefinir sua senha."
-                  href="/change-password"
-                />
-              }
-              txtButton="Enviar"
-            />
-          </div>
-        </form>
+        <FormForgotPassword />
       </div>
     </aside>
   );

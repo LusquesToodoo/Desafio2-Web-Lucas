@@ -5,15 +5,15 @@ import Button from "../Button";
 import Loading from "./loading.gif";
 
 const Modal = ({
-  alt = "",
-  dataBsTarget = "",
-  href = "",
-  src,
-  statusModal = "",
-  statusLoading = "d-none",
-  titleModal = "Parturient enim sit id cras.",
-  txtButton,
-  txtModal = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed.",
+  alt = "", // Texto alternativo da imagem do modal.
+  dataBsTarget = "", // Id do modal.
+  href = "", // Link oara onde botões do modão redireciona.
+  src, // caminho da imagem do modal.
+  statusLoading = "d-none", // define momentos em qua loading deve aparecer.
+  statusModal = "", // success || error.
+  titleModal = "Parturient enim sit id cras.", // título do modal.
+  txtButton, // conteúdo do botão - botão só existe a partir do momento que um conteúdo é atrelado ao seu botão.
+  txtModal = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed.", // conteúdo do texto.
 }) => {
   return (
     <>

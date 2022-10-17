@@ -124,7 +124,7 @@ const FormLogin = () => {
               src={
                 statusModal
                   ? `svg/modal-status-${statusModal}.svg`
-                  : "svg/modalForgotPassword.svg"
+                  : "svg/emailSent.svg"
               }
               statusModal={statusModal}
               statusLoading={statusLoading}
