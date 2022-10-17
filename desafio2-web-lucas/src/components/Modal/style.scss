@@ -8,10 +8,10 @@
     & .modal-info {
       h5 {
         color: map-get($map: $map-primary-colors, $key: "400");
-        &.success{
+        &.success {
           color: map-get($map: $map-alert-colors, $key: "success");
         }
-        &.error{
+        &.error {
           color: map-get($map: $map-alert-colors, $key: "error");
         }
       }
@@ -19,12 +19,19 @@
         max-width: 232px;
       }
     }
-    & .button-modal{
+    & .button-modal {
       max-width: 208px;
-      & .btn{
+      & .btn {
         padding-top: 10px;
         padding-bottom: 10px;
       }
     }
+  }
+}
+.modal-loading {
+  height: fit-content;
+  width: fit-content;
+  & .loading-container {
+    width: 275px;
   }
 }

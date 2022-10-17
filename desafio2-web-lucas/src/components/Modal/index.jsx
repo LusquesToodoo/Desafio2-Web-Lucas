@@ -1,7 +1,8 @@
 import "./style.scss";
 import { Link } from "react-router-dom";
-import Button from "../Button";
 import { useState } from "react";
+import Button from "../Button";
+import Loading from "./loading.gif";
 
 const Modal = ({
   alt = "",
@@ -9,6 +10,7 @@ const Modal = ({
   href = "",
   src,
   statusModal = "",
+  statusLoading = "d-none",
   titleModal = "Parturient enim sit id cras.",
   txtButton,
   txtModal = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed.",
@@ -18,14 +20,14 @@ const Modal = ({
       <div
         aria-hidden="true"
         aria-labelledby="staticBackdropLabel"
-        className={`modal fade ${statusModal}`}
+        className={`modal fade`}
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         id={dataBsTarget}
         tabIndex="-1"
       >
         <div className="h-100 d-flex">
-          <div className="modal-dialog m-auto">
+          <div className={`modal-dialog m-auto ${statusModal}`}>
             <div className="modal-content border-0">
               <div className="modal-header border-0 p-4 pb-1">
                 <Link className="button-close d-block ms-auto" to={href}>
@@ -58,6 +60,16 @@ const Modal = ({
                     </span>
                   </Link>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={`modal-dialog m-auto modal-loading ${statusLoading}`}>
+            <div className="modal-content border-0">
+              <div className="modal-body pt-0 text-center pb-0 text-center rounded-1">
+                <figure className="loading-container m-0 p-0">
+                  <img className="w-100" src={Loading} alt="Loading..." />
+                </figure>
               </div>
             </div>
           </div>

@@ -8,9 +8,10 @@ import Modal from "../../../../components/Modal";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("marcos.santos@toodoo.com.br");
-  const [password, setPassword] = useState("abelha@12345");
-  const [modalTitle, setModalTitle] = useState(undefined);
   const [modalText, setModalText] = useState(undefined);
+  const [modalTitle, setModalTitle] = useState(undefined);
+  const [password, setPassword] = useState("abelha@1234");
+  const [statusLoading, setStatusLoading] = useState("d-none");
   const [statusModal, setStatusModal] = useState("d-none");
   const navigate = useNavigate();
 
@@ -20,22 +21,24 @@ const FormLogin = () => {
       email: email,
       password: password,
     };
+    setStatusLoading("");
     setStatusModal("d-none");
 
     await axios
       .post("https://erm-api.azurewebsites.net/Account/login", user)
       .then((response) => {
         navigate("/components");
-        const modalBackdrop = document.querySelector(".modal-backdrop.show");
         const rememberPassword =
           document.querySelector("#remember-password").checked;
-        modalBackdrop.parentNode.removeChild(modalBackdrop);
+
         setTimeout(() => {
-          const modal = document.querySelectorAll(".modal.d-none");
-          modal.forEach((element) => {
+          const modalElements = document.querySelectorAll(
+            "body > *:not(#root):not(noscript)",
+          );
+          modalElements.forEach((element) => {
             element.parentNode.removeChild(element);
           });
-        }, 100);
+        }, 500);
 
         localStorage.removeItem("token");
         sessionStorage.removeItem("token");
@@ -44,12 +47,13 @@ const FormLogin = () => {
           : sessionStorage.setItem("token", response.data);
       })
       .catch((error) => {
+        setStatusLoading("d-none");
         setStatusModal("error");
         setModalTitle(`Error ${error.response.data.status}`);
         setModalText(`${error.response.data.title}`);
       });
-    // setEmail("");
-    // setPassword("");
+    setEmail("");
+    setPassword("");
   };
 
   const validateInputs = () => {
@@ -123,6 +127,7 @@ const FormLogin = () => {
                   : "svg/modalForgotPassword.svg"
               }
               statusModal={statusModal}
+              statusLoading={statusLoading}
               titleModal={modalTitle}
               txtModal={modalText}
               // txtButton={"pode crê"} // sem esse atributo o botão não existe.
