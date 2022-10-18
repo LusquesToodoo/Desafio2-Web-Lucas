@@ -130,7 +130,7 @@ const Sidebar = () => {
                   >
                     <Link
                       className="text-gray-600 d-flex align-items-center gap-4 text-decoration-none"
-                      to={`#${item.suffix}`}
+                      to={`${item.suffix}`}
                     >
                       <figure className="home m-0">
                         <img src={item.image} alt="" className={item.title} />
