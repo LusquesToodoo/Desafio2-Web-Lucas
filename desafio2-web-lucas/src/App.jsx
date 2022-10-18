@@ -8,6 +8,7 @@ import Login from "./pages/Access/Login";
 import ForgotPassword from "./pages/Access/ForgotPassword";
 import ChangePassword from "./pages/Access/ChangePassword";
 import { useState } from "react";
+import CollaboratorHome from "./pages/Collaborator/Home";
 
 const App = () => {
   const [userInfo, setUserInfo] = useState("");
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/components" element={<Components />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/collaborator-home" element={<CollaboratorHome />} />
       </Routes>
     </Router>
   );

@@ -31,7 +31,6 @@ const FormForgotPassword = () => {
         setStatusModal("");
       })
       .catch((error) => {
-        console.log(error.response);
         setModalTitle(`Error ${error.response.status}`);
         setModalText(`${error.response.statusText}`);
         setModalText(

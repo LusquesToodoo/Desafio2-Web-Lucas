@@ -27,7 +27,7 @@ const FormLogin = () => {
     await axios
       .post("https://erm-api.azurewebsites.net/Account/login", user)
       .then((response) => {
-        navigate("/components");
+        navigate("/collaborator-home");
         const rememberPassword =
           document.querySelector("#remember-password").checked;
 
