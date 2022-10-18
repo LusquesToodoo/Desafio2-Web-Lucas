@@ -57,7 +57,7 @@ const Sidebar = () => {
   return (
     <>
       <div
-      className="button-sidebar"
+        className="button-sidebar"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasScrolling"
@@ -68,9 +68,9 @@ const Sidebar = () => {
         </figure>
       </div>
 
-      <header
+      <aside
         aria-labelledby="offcanvasScrollingLabel"
-        className="sidebar-collaborator offcanvas offcanvas-start"
+        className="sidebar-collaborator offcanvas offcanvas-start border-0 shadow-lg"
         data-bs-backdrop="false"
         data-bs-scroll="true"
         id="offcanvasScrolling"
@@ -186,20 +186,22 @@ const Sidebar = () => {
                 <input id="modal-go-out" type="checkbox" className="d-none" />
                 <div className="position-relative">
                   <figure className=" fs-3 m-0">
-                    <i class="bi bi-three-dots fs-5 me-1"></i>
+                    <i className="bi bi-three-dots fs-5 me-1"></i>
                   </figure>
-                  <div class="modal-go-out text-gray-100 shadow-sm mt-3 d-flex align-content-center">
-                    <figure className="m-0">
-                      <img src={goOut} alt="go out" />
-                    </figure>
-                    <p className="body-2 text-gray-700 m-0 mt-1 ms-2">Sair</p>
-                  </div>
+                  <Link className="text-decoration-none" to={"/"}>
+                    <div className="modal-go-out text-gray-100 shadow-sm mt-3 d-flex align-content-center">
+                      <figure className="m-0">
+                        <img src={goOut} alt="go out" />
+                      </figure>
+                      <p className="body-2 text-gray-700 m-0 mt-1 ms-2">Sair</p>
+                    </div>
+                  </Link>
                 </div>
               </label>
             </div>
           </div>
         </section>
-      </header>
+      </aside>
     </>
   );
 };

@@ -1,0 +1,60 @@
+.collaborator-main {
+  background-color: #f9f9fa;
+  min-height: 100vh;
+}
+
+.header-space {
+  background-color: red;
+  height: 100vh;
+  width: 275px;
+}
+
+.main-container {
+  height: 100vh;
+  background-color: blueviolet;
+  & .home-container-left {
+    max-width: 680px;
+    & ul {
+      position: relative;
+      & .news-list-item {
+        position: relative;
+        z-index: 1;
+      }
+      & .list-show-more {
+        cursor: pointer;
+        max-width: 660px;
+        position: absolute;
+        bottom: -8px;
+        left: 10px;
+        z-index: 0;
+        transition: 0.3s;
+        &:hover {
+          transform: translateY(75%);
+        }
+        &::before {
+          background-color: #fff;
+          border-radius: 0 0 5px 5px;
+          bottom: -8px;
+          content: "";
+          display: block;
+          height: 7px;
+          left: 10px;
+          position: absolute;
+          width: 640px;
+        }
+      }
+    }
+    & .list-report-image {
+      height: 48px;
+      width: 48px;
+      background-color: red;
+    }
+    & .sector-label {
+      border-radius: 2px;
+      font-size: 8px;
+      height: fit-content;
+      padding: 4px 10px;
+      width: fit-content;
+    }
+  }
+}
