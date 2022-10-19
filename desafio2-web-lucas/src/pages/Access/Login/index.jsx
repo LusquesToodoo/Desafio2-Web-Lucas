@@ -1,11 +1,11 @@
-import AccessContainer from "../AccessContainer";
+import ContainerAccess from "../ContainerAccess";
 import HeaderLogin from "./HeaderLogin";
 import MainLogin from "./MainLogin";
 import "./style.scss";
 
 const Login = () => {
   return (
-    <AccessContainer
+    <ContainerAccess
       header={<HeaderLogin />}
       main={<MainLogin />}
       page="page-login"

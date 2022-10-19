@@ -45,13 +45,16 @@ const selectElement = (element, elementClass) => {
     : selectElement(element.parentNode, elementClass);
 };
 
-const Sidebar = () => {
+const Sidebar = ({ menuSpace }) => {
   const currentActive = (e) => {
     const lastActive = document.querySelector(".navigation-item.active");
     lastActive.classList.remove("active");
     const currentElement = selectElement(e.target, "navigation-item");
     console.log();
     currentElement.classList.add("active");
+  };
+  const btnClick = () => {
+    menuSpace();
   };
 
   return (
@@ -63,14 +66,14 @@ const Sidebar = () => {
         data-bs-target="#offcanvasScrolling"
         aria-controls="offcanvasScrolling"
       >
-        <figure className="m-0 p-2 border rounded-3">
+        <figure className="m-0 p-2 border rounded-3" onClick={btnClick}>
           <img src={expand} alt="expand" />
         </figure>
       </div>
 
       <aside
         aria-labelledby="offcanvasScrollingLabel"
-        className="sidebar-collaborator offcanvas offcanvas-start border-0 shadow-lg"
+        className="sidebar-collaborator offcanvas offcanvas-start border-0 shadow-sm"
         data-bs-backdrop="false"
         data-bs-scroll="true"
         id="offcanvasScrolling"
@@ -85,6 +88,7 @@ const Sidebar = () => {
                   className="btn-close p-0 me-4"
                   data-bs-dismiss="offcanvas"
                   type="button"
+                  onClick={btnClick}
                 ></button>
                 <figure className="m-0">
                   <img src={ToodooLogo} alt="Toodoo" />
@@ -136,8 +140,7 @@ const Sidebar = () => {
                       >
                         <Link
                           className="text-gray-600 d-flex align-items-center gap-4 text-decoration-none"
-                          // to={`${item.suffix}`}
-                          to={""}
+                          to={`/collaborator-${item.suffix}`}
                         >
                           <figure className="home m-0">
                             <img

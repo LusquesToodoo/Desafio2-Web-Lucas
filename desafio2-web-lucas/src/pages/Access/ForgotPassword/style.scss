@@ -1,3 +1,11 @@
+.page-login,
+.page-forgot-password,
+.page-change-password {
+  & ~ *{
+    display: none;
+  }
+}
+
 .page-forgot-password,
 .page-change-password {
   .header {

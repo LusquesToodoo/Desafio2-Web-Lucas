@@ -1,10 +1,10 @@
-import AccessContainer from "../AccessContainer";
+import ContainerAccess from "../ContainerAccess";
 import HeaderChangePassword from "./HeaderChangePassword";
 import MainChangePassword from "./MainChangePassword";
 
 const ChangePassword = () => {
   return (
-    <AccessContainer
+    <ContainerAccess
       header={<HeaderChangePassword />}
       main={<MainChangePassword />}
       page="page-change-password"

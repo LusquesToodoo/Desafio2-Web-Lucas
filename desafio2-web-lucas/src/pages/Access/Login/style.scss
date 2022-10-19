@@ -1,8 +1,7 @@
 @import "../../../scss/variables";
-
 .header {
-  background-color: #faf;
-  background-image: linear-gradient(#fafbff, #fff);
+  background-color: #fafbff;
+  // background-image: linear-gradient(#fafbff, #fff);
   min-height: 100vh;
 
   & .header-container {

@@ -1,4 +1,4 @@
-const AccessContainer = ({ header, main, footer, page = "" }) => {
+const ContainerAccess = ({ header, main, footer, page = "" }) => {
   return (
     <section className={`all-container container-fluid p-0 d-lg-flex ${page}`}>
       <header className="header d-flex align-items-center justify-content-center col-lg-7 p-0">
@@ -9,4 +9,4 @@ const AccessContainer = ({ header, main, footer, page = "" }) => {
     </section>
   );
 };
-export default AccessContainer;
+export default ContainerAccess;

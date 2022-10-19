@@ -1,18 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Button from "./components/Button";
-import Components from "./pages/Components";
-import Dropdown from "./components/Dropdown";
-import Input from "./components/Input";
-import InputIcon from "./components/InputIcon";
-import Login from "./pages/Access/Login";
-import ForgotPassword from "./pages/Access/ForgotPassword";
-import ChangePassword from "./pages/Access/ChangePassword";
 import { useState } from "react";
-import CollaboratorHome from "./pages/Collaborator/Home";
+import ChangePassword from "./pages/Access/ChangePassword";
+import Components from "./pages/Components";
+import ForgotPassword from "./pages/Access/ForgotPassword";
+import Login from "./pages/Access/Login";
+import RoutesCollaborator from "./pages/Collaborator/RoutesCollaborator";
 
 const App = () => {
   const [userInfo, setUserInfo] = useState("");
-  // Ou você pode armazenar a informação no local storage
   return (
     <Router>
       <Routes>
@@ -20,7 +15,19 @@ const App = () => {
         <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/components" element={<Components />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/collaborator-home" element={<CollaboratorHome />} />
+      </Routes>
+
+      <RoutesCollaborator />
+
+      <Routes>
+        <Route
+          path="*"
+          element={
+            <div className="text-center text-light bg-alert-error py-5">
+              Página não encontrada
+            </div>
+          }
+        />
       </Routes>
     </Router>
   );
