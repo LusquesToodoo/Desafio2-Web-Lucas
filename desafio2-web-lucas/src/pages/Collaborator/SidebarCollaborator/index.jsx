@@ -24,7 +24,7 @@ const collaboratorNavItems = [
   },
   {
     image: data,
-    title: "Dados corposativos",
+    title: "Dados corporativos",
     suffix: "data",
   },
   {

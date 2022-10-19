@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import Datas from "./pages/Collaborator/Datas";
 import ChangePassword from "./pages/Access/ChangePassword";
 import Components from "./pages/Components";
 import ForgotPassword from "./pages/Access/ForgotPassword";
@@ -34,7 +35,7 @@ const App = () => {
         />
         <Route
           path="/collaborator-data"
-          element={<RoutesCollaborator element={notFound} />}
+          element={<RoutesCollaborator element={<Datas />} />}
         />
         <Route
           path="/collaborator-team"

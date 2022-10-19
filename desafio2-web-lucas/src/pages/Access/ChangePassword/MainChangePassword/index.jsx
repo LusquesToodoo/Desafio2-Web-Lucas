@@ -27,6 +27,7 @@ const MainChangePassword = () => {
               txtClue=""
               txtLabel="Nova senha"
               txtPlaceholder="ao menos 8 caracteres"
+              value="hello-world"
             />
 
             <InputPassword
@@ -34,6 +35,7 @@ const MainChangePassword = () => {
               txtClue=""
               txtLabel="Nova senha"
               txtPlaceholder="ao menos 8 caracteres"
+              value="hello-world"
             />
           </div>
           <p className="caption text-gray-400 mb-4 pb-2">
@@ -47,6 +49,7 @@ const MainChangePassword = () => {
               dataBsTarget="#modalForgotPassword"
               // modal={<ModalForgotPassword dataBsTarget="modalForgotPassword" />}
               txtButton="Enviar"
+              type="submit"
             />
           </div>
         </form>

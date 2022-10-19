@@ -8,7 +8,7 @@ const InputPassword = ({
   txtLabel = "Label - password",
   txtPlaceholder = "Placeholder",
   updatePassword,
-  value = "oie",
+  value = "",
 }) => {
   const [type, setType] = useState("password");
   function showPassword(e) {

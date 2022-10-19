@@ -4,29 +4,59 @@ import Button from "../../../components/Button";
 import { useEffect, useState } from "react";
 
 const CollaboratorHome = () => {
+  let birthdayList = [];
   const [birthdayItems, setBirthdayItems] = useState(undefined);
-  // const birthdayList = async () => {
-  //   console.log("início");
-  //   await axios
-  //     .get("https://erm-api.azurewebsites.net/Employee/birthdayOfTheMonth")
-  //     .then((response) => {
-  //       setBirthdayItems(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.response);
-  //     });
-  //   console.log("Fim");
-  //   console.log(birthdayItems);
-  // };
-  useEffect(() => {
-    axios
-      .get("https://erm-api.azurewebsites.net/Employee/birthdayOfTheMonth")
-      .then(() => {
-        console.log("deu bom");
+
+  const authorization = {
+    headers: {
+      Authorization: `Bearer ${
+        localStorage.getItem("token") || sessionStorage.getItem("token")
+      }`,
+    },
+  };
+
+  const createBirthdayList = () => {
+    if (!birthdayList.length) {
+      setBirthdayItems(
+        <p className="overline">Não há aniversariantes para este mês...</p>,
+      );
+      birthdayList = ["oie", "ok"]; //limao - apagar e descomentar o return abaixo
+      // return;
+    }
+    setBirthdayItems(
+      birthdayList.map(() => (
+        <li className="d-flex align-item mb-3">
+          <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
+            Foto do perfil
+          </figure>
+          <div>
+            <p className="body-2 text-primary-600 mb-1">
+              Gabriel Junior de Souza
+            </p>
+            <p className="caption-regular text-gray-400 m-0">1 de julho</p>
+          </div>
+        </li>
+      )),
+    );
+  };
+
+  const getBirthdayList = async () => {
+    await axios
+      .get(
+        "https://erm-api.azurewebsites.net/Employee/birthdayOfTheMonth",
+        authorization,
+      )
+      .then((response) => {
+        birthdayList = response.data;
       })
-      .catch(() => {
-        console.log("deu ruim");
+      .catch((error) => {
+        console.log(error);
       });
+    createBirthdayList();
+  };
+
+  useEffect(() => {
+    getBirthdayList();
   }, []);
 
   return (
@@ -148,7 +178,7 @@ const CollaboratorHome = () => {
                 </p>
               </li>
             </ul>
-            <div className="vacation-schedule py-4 px-4 shadow-md rounded-1">
+            <div className="vacation-schedule py-4 px-4 shadow-sm rounded-1">
               <div className="d-flex justify-content-between px-2 mb-5">
                 <h6>Férias agendadas</h6>
                 <span className="vocation-button d-block">
@@ -181,99 +211,7 @@ const CollaboratorHome = () => {
           </section>
           <aside className="home-container-right container p-4 pb-2 mx-0 rounded-1 shadow-sm">
             <h6 className="text-gray-700 mb-4">Próximos aniversários</h6>
-            <ul className="list-unstyled m-0 mb-4">
-              <li className="d-flex align-item mb-3">
-                <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-                  Foto do perfil
-                </figure>
-                <div>
-                  <p className="body-2 text-primary-600 mb-1">
-                    Gabriel Junior de Souza
-                  </p>
-                  <p className="caption-regular text-gray-400 m-0">
-                    1 de julho
-                  </p>
-                </div>
-              </li>
-              <li className="d-flex align-item mb-3">
-                <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-                  Foto do perfil
-                </figure>
-                <div>
-                  <p className="body-2 text-primary-600 mb-1">
-                    Gabriel Junior de Souza
-                  </p>
-                  <p className="caption-regular text-gray-400 m-0">
-                    1 de julho
-                  </p>
-                </div>
-              </li>
-              <li className="d-flex align-item mb-3">
-                <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-                  Foto do perfil
-                </figure>
-                <div>
-                  <p className="body-2 text-primary-600 mb-1">
-                    Gabriel Junior de Souza
-                  </p>
-                  <p className="caption-regular text-gray-400 m-0">
-                    1 de julho
-                  </p>
-                </div>
-              </li>
-              <li className="d-flex align-item mb-3">
-                <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-                  Foto do perfil
-                </figure>
-                <div>
-                  <p className="body-2 text-primary-600 mb-1">
-                    Gabriel Junior de Souza
-                  </p>
-                  <p className="caption-regular text-gray-400 m-0">
-                    1 de julho
-                  </p>
-                </div>
-              </li>
-              <li className="d-flex align-item mb-3">
-                <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-                  Foto do perfil
-                </figure>
-                <div>
-                  <p className="body-2 text-primary-600 mb-1">
-                    Gabriel Junior de Souza
-                  </p>
-                  <p className="caption-regular text-gray-400 m-0">
-                    1 de julho
-                  </p>
-                </div>
-              </li>
-              <li className="d-flex align-item mb-3">
-                <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-                  Foto do perfil
-                </figure>
-                <div>
-                  <p className="body-2 text-primary-600 mb-1">
-                    Gabriel Junior de Souza
-                  </p>
-                  <p className="caption-regular text-gray-400 m-0">
-                    1 de julho
-                  </p>
-                </div>
-              </li>
-              <li className="d-flex align-item mb-3">
-                <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-                  Foto do perfil
-                </figure>
-                <div>
-                  <p className="body-2 text-primary-600 mb-1">
-                    Gabriel Junior de Souza
-                  </p>
-                  <p className="caption-regular text-gray-400 m-0">
-                    1 de julho
-                  </p>
-                </div>
-              </li>
-            </ul>
+            <ul className="list-unstyled m-0 mb-4">{birthdayItems}</ul>
           </aside>
         </div>
       </div>

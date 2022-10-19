@@ -43,8 +43,8 @@ const FormLogin = () => {
         localStorage.removeItem("token");
         sessionStorage.removeItem("token");
         rememberPassword
-          ? localStorage.setItem("token", response.data)
-          : sessionStorage.setItem("token", response.data);
+          ? localStorage.setItem("token", response.data.token)
+          : sessionStorage.setItem("token", response.data.token);
       })
       .catch((error) => {
         setStatusLoading("d-none");

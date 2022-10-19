@@ -1,0 +1,34 @@
+.data-vacation {
+  background-color: #fff;
+  border-radius: 8px;
+  height: 400px;
+}
+
+.remuneration-value {
+  font-size: 56px;
+  line-height: 64px;
+}
+
+.remuneration-list {
+  & .remuneration-list-item {
+    margin-bottom: 32px;
+    & .remuneration-list-image {
+      height: 48px;
+      position: relative;
+      width: 48px;
+      i {
+        color: #fff;
+      }
+      &:before {
+        border: dashed 1px;
+        content: "";
+        display: block;
+        height: 32px;
+        left: 23px;
+        position: absolute;
+        top: -32px;
+        width: 1px;
+      }
+    }
+  }
+}

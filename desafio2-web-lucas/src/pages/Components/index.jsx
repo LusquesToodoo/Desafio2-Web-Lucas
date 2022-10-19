@@ -51,7 +51,7 @@ const Components = () => {
         <InputIcon src="svg/user-icon.svg" alt="user" teste="oie" />
       </Input>
 
-      <InputPassword msg="oie" />
+      <InputPassword />
 
       <Dropdown
         txtLabel={"Label"}
