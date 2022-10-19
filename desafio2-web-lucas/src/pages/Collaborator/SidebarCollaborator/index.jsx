@@ -73,7 +73,7 @@ const Sidebar = ({ menuSpace }) => {
 
       <aside
         aria-labelledby="offcanvasScrollingLabel"
-        className="sidebar-collaborator offcanvas offcanvas-start border-0 shadow-sm"
+        className="sidebar-collaborator offcanvas offcanvas-start border-0 shadow-sm show"
         data-bs-backdrop="false"
         data-bs-scroll="true"
         id="offcanvasScrolling"

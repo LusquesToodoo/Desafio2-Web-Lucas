@@ -47,6 +47,9 @@
   right: 16px;
   top: 40px;
   width: 16px;
+  &.eye {
+    height: fit-content;
+  }
 }
 
 .clue {

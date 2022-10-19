@@ -1,7 +1,34 @@
 import "./style.scss";
+import axios from "axios";
 import Button from "../../../components/Button";
+import { useEffect, useState } from "react";
 
-const CollaboratorHome = ({ headerActive }) => {
+const CollaboratorHome = () => {
+  const [birthdayItems, setBirthdayItems] = useState(undefined);
+  // const birthdayList = async () => {
+  //   console.log("início");
+  //   await axios
+  //     .get("https://erm-api.azurewebsites.net/Employee/birthdayOfTheMonth")
+  //     .then((response) => {
+  //       setBirthdayItems(response);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.response);
+  //     });
+  //   console.log("Fim");
+  //   console.log(birthdayItems);
+  // };
+  useEffect(() => {
+    axios
+      .get("https://erm-api.azurewebsites.net/Employee/birthdayOfTheMonth")
+      .then(() => {
+        console.log("deu bom");
+      })
+      .catch(() => {
+        console.log("deu ruim");
+      });
+  }, []);
+
   return (
     <>
       <div className="main-content col-11 mt-5 w-100">

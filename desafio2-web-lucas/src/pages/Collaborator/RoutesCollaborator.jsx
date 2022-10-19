@@ -3,8 +3,8 @@ import { useState } from "react";
 import CollaboratorHome from "./Home";
 import SidebarCollaborator from "./SidebarCollaborator";
 
-const RoutesCollaborator = () => {
-  const [headerActive, setHeaderActive] = useState("");
+const RoutesCollaborator = ({ element }) => {
+  const [headerActive, setHeaderActive] = useState("active");
   const menuSpace = () => {
     headerActive ? setHeaderActive("") : setHeaderActive("active");
   };
@@ -16,11 +16,7 @@ const RoutesCollaborator = () => {
       <main className="collaborator-main d-flex">
         <section className={`header-space`}></section>
         <section className={`header-space ${headerActive}`}></section>
-        <section className="main-container container w-100">
-          <Routes>
-            <Route path="/collaborator-home" element={<CollaboratorHome headerActive={headerActive} />}/>
-          </Routes>
-        </section>
+        <section className="main-container container w-100">{element}</section>
       </main>
     </>
   );
