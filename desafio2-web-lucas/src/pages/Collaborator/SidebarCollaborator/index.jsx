@@ -178,7 +178,7 @@ const Sidebar = ({ menuSpace }) => {
             <div className="d-flex justify-content-between">
               <div className="user-badge d-flex align-items-center">
                 <figure className="user-image rounded-circle overflow-hidden m-0 me-3">
-                  foto do perfil
+                  <img className="w-100" src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="" />
                 </figure>
                 <div>
                   <p className="caption text-gray-700 m-0">Nome do usuário</p>
