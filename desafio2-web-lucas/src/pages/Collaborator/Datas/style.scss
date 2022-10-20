@@ -8,26 +8,36 @@
   font-size: 56px;
   line-height: 64px;
 }
+.data-benefits{
+  background-color: #fff;
+  padding: 32px;
+  padding-bottom: 12px;
+}
 
-.remuneration-list {
-  & .remuneration-list-item {
-    margin-bottom: 32px;
-    & .remuneration-list-image {
-      height: 48px;
-      position: relative;
-      width: 48px;
-      i {
-        color: #fff;
-      }
-      &:before {
-        border: dashed 1px;
-        content: "";
-        display: block;
-        height: 32px;
-        left: 23px;
-        position: absolute;
-        top: -32px;
-        width: 1px;
+.data-container-right {
+  background-color: #fff;
+  max-height: 680px;
+  max-width: 330px;
+  .remuneration-list {
+    & .remuneration-list-item {
+      margin-bottom: 32px;
+      & .remuneration-list-image {
+        height: 48px;
+        position: relative;
+        width: 48px;
+        i {
+          color: #fff;
+        }
+        &:before {
+          border: dashed 1px;
+          content: "";
+          display: block;
+          height: 32px;
+          left: 23px;
+          position: absolute;
+          top: -32px;
+          width: 1px;
+        }
       }
     }
   }
