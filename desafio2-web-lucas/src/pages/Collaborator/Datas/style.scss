@@ -2,15 +2,30 @@
   background-color: #fff;
   border-radius: 8px;
   height: 400px;
+  & .btn {
+    font-size: 14px !important;
+  }
+
+  & .vacation-table {
+    tr {
+      td,
+      th {
+        width: 130px;
+        margin-right: 80px;
+      }
+    }
+    & .vacation-th-icon {
+      font-size: 10px;
+    }
+  }
 }
 
 .remuneration-value {
   font-size: 56px;
   line-height: 64px;
 }
-.data-benefits{
+.data-benefits {
   background-color: #fff;
-  padding: 32px;
   padding-bottom: 12px;
 }
 
