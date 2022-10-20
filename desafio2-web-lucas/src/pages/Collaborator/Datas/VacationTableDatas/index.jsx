@@ -18,7 +18,7 @@ const VacarionTableDatas = () => {
         </div>
       </div>
       <table className="vacation-table d-block">
-        <thead className="d-block px-4 bg-primary w-100">
+        <thead className="d-block px-4 bg-primary-500 w-100">
           <tr className="w-100 d-flex">
             <th className="body-2-semibold text-light d-block py-3">
               Início previsto

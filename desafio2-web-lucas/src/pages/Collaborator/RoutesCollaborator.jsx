@@ -14,7 +14,6 @@ const RoutesCollaborator = ({ element }) => {
         <SidebarCollaborator menuSpace={menuSpace} />
       </header>
       <main className="collaborator-main d-flex">
-        <section className={`header-space`}></section>
         <section className={`header-space ${headerActive}`}></section>
         <section className="main-container container w-100">{element}</section>
       </main>

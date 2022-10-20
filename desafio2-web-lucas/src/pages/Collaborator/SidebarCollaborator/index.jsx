@@ -35,7 +35,7 @@ const collaboratorNavItems = [
   {
     image: help,
     title: "Helpdesk",
-    suffix: "help",
+    suffix: "helpdesk",
   },
 ];
 const selectElement = (element, elementClass) => {

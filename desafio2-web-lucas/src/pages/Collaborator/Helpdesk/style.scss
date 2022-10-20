@@ -1,0 +1,48 @@
+.main-helpdesk {
+  & .helpdesk-table {
+    background-color: #fff;
+    & thead {
+      & .btn {
+        font-size: 14px !important;
+      }
+      & .search-image {
+        width: 20px;
+        cursor: pointer;
+      }
+    }
+    tr {
+      padding: 0 32px;
+    }
+    & td,
+    th {
+      width: 160px;
+      & i {
+        font-size: 10px;
+      }
+    }
+
+    & .helpdesk-span-dropdown {
+      border: 0;
+      & #helpdesk-menu-dropdown {
+        padding: 16px 8px !important;
+        background-color: transparent;
+        background-image: none;
+        border: 0;
+        cursor: pointer;
+        position: relative;
+        width: 55px;
+        z-index: 1;
+      }
+      & i {
+        position: relative;
+        left: -25px;
+      }
+    }
+
+    & .data-table-btn {
+      & > figure {
+        cursor: pointer;
+      }
+    }
+  }
+}

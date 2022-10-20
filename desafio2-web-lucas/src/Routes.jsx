@@ -7,6 +7,7 @@ import ForgotPassword from "./pages/Access/ForgotPassword";
 import Login from "./pages/Access/Login";
 import RoutesCollaborator from "./pages/Collaborator/RoutesCollaborator";
 import CollaboratorHome from "./pages/Collaborator/Home";
+import Helpdesk from "./pages/Collaborator/Helpdesk";
 
 const App = () => {
   const [userInfo, setUserInfo] = useState("");
@@ -46,8 +47,8 @@ const App = () => {
           element={<RoutesCollaborator element={notFound} />}
         />
         <Route
-          path="/collaborator-help"
-          element={<RoutesCollaborator element={notFound} />}
+          path="/collaborator-helpdesk"
+          element={<RoutesCollaborator element={<Helpdesk />} />}
         />
       </Routes>
     </Router>
