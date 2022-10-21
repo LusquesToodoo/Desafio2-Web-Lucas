@@ -8,6 +8,7 @@ import Login from "./pages/Access/Login";
 import RoutesCollaborator from "./pages/Collaborator/RoutesCollaborator";
 import CollaboratorHome from "./pages/Collaborator/Home";
 import Helpdesk from "./pages/Collaborator/Helpdesk";
+import Team from "./pages/Collaborator/Team";
 
 const App = () => {
   const [userInfo, setUserInfo] = useState("");
@@ -40,7 +41,7 @@ const App = () => {
         />
         <Route
           path="/collaborator-team"
-          element={<RoutesCollaborator element={notFound} />}
+          element={<RoutesCollaborator element={<Team />} />}
         />
         <Route
           path="/collaborator-chart"

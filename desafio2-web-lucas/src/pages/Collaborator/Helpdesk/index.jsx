@@ -191,7 +191,7 @@ const Helpdesk = () => {
             </th>
             <th className="d-flex align-items-center justify-content-center gap-4 py-4 caption fw-600 pb-2 ">
               <span>1-10 de 35</span>
-              <div className="d-flex gap-3 data-table-btn">
+              <div className="d-flex gap-3 helpdesk-table-btn">
                 <figure className="m-0">
                   <img src="./images/png/arrow_left.png" alt="" />
                 </figure>
