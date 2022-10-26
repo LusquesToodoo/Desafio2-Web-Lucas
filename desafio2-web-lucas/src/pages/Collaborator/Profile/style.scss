@@ -1,0 +1,56 @@
+.profile-info-container {
+  & .profile-info-header {
+    align-items: flex-end;
+    border-radius: 8px;
+    display: flex;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+  }
+  & .profile-info-header-cover {
+    border-radius: 8px;
+    height: 216px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    & img {
+      object-fit: cover;
+      width: 100%;
+    }
+    & .change-cover {
+      border-radius: 50%;
+      bottom: 16px;
+      cursor: pointer;
+      height: 48px;
+      position: absolute;
+      right: 26px;
+      width: 48px;
+      z-index: 1;
+      & > div {
+        height: 20px;
+      }
+    }
+  }
+  & .profile-user-info {
+    margin-left: 88px;
+  }
+  & .profile-info-image {
+    border-radius: 50%;
+    border: solid 7px #f9f9fa;
+    height: 216px;
+    width: 216px;
+  }
+}
+
+.change-profile-image {
+  border-radius: 50%;
+  border: solid 7px #f9f9fa;
+  bottom: 0;
+  cursor: pointer;
+  height: 55px;
+  position: absolute;
+  right: 0;
+  width: 55px;
+}
