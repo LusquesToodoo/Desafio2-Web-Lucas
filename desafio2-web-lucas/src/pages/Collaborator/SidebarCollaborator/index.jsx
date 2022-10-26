@@ -2,12 +2,15 @@ import "./style.scss";
 import { Link } from "react-router-dom";
 import chart from "./images/chart-gray.svg";
 import data from "./images/data-gray.svg";
+import expand from "./images/Expand.png";
 import goOut from "./images/go-out.svg";
 import help from "./images/help-gray.svg";
-import expand from "./images/Expand.png";
 import home from "./images/home-gray.svg";
 import menuArrow from "./images/menu-arrow.svg";
+import mural from "./images/mural.svg";
 import profile from "./images/profile-gray.svg";
+import promotions from "./images/promotions.svg";
+import registration from "./images/registration.svg";
 import team from "./images/team-gray.svg";
 import ToodooLogo from "./images/Toodoo-logo.png";
 
@@ -38,6 +41,29 @@ const collaboratorNavItems = [
     suffix: "helpdesk",
   },
 ];
+const administrativeItems = [
+  {
+    image: registration,
+    title: "Cadastros",
+    suffix: "",
+  },
+  {
+    image: promotions,
+    title: "Promoções",
+    suffix: "",
+  },
+  {
+    image: mural,
+    title: "Mural",
+    suffix: "",
+  },
+  {
+    image: help,
+    title: "Helpdesk",
+    suffix: "",
+  },
+];
+
 const selectElement = (element, elementClass) => {
   console.log("passei aqui");
   return element.classList.contains(elementClass)
@@ -97,12 +123,9 @@ const Sidebar = ({ menuSpace }) => {
             </div>
             <nav className="sidebar-navigation">
               <ul className="text-sidebar p-0">
-                <li
-                  className="navigation-item mb-4 ps-4 active"
-                  onClick={currentActive}
-                >
+                <li className="navigation-item active" onClick={currentActive}>
                   <Link
-                    className="text-gray-600 d-flex align-items-center gap-4 text-decoration-none py-3"
+                    className="text-gray-600 d-flex align-items-center gap-4 text-decoration-none py-3 mb-4 ps-4"
                     to="/collaborator-home"
                   >
                     <figure className="home m-0">
@@ -134,12 +157,12 @@ const Sidebar = ({ menuSpace }) => {
                   <ul className="collapse p-0" id="collaboratorNavItems">
                     {collaboratorNavItems.map((item, i) => (
                       <li
-                        className="navigation-item ps-4 py-3"
+                        className="navigation-item"
                         key={`item.suffix-${i}`}
                         onClick={currentActive}
                       >
                         <Link
-                          className="text-gray-600 d-flex align-items-center gap-4 text-decoration-none"
+                          className="text-gray-600 d-flex align-items-center gap-4 text-decoration-none ps-4 py-3"
                           to={`/collaborator-${item.suffix}`}
                         >
                           <figure className="home m-0">
@@ -163,6 +186,7 @@ const Sidebar = ({ menuSpace }) => {
                 overline text-gray-400 d-flex
                 align-items-center justify-content-between text-decoration-none text-uppercase m-0 py-3 collapsed"
                     data-bs-toggle="collapse"
+                    href="#administrativeNavItems"
                     role="button"
                   >
                     <p className="m-0 text-decoration-none">Administrativo</p>
@@ -171,6 +195,33 @@ const Sidebar = ({ menuSpace }) => {
                     </figure>
                   </a>
                 </li>
+                <li>
+                  <li>
+                    <ul className="collapse p-0" id="administrativeNavItems">
+                      {administrativeItems.map((item, i) => (
+                        <li
+                          className="navigation-item"
+                          key={`item.suffix-${i}`}
+                          onClick={currentActive}
+                        >
+                          <Link
+                            className="text-gray-600 d-flex align-items-center gap-4 text-decoration-none ps-4 py-3"
+                            to={item.suffix ? `/collaborator-${item.suffix}` : ""}
+                          >
+                            <figure className="home m-0">
+                              <img
+                                src={item.image}
+                                alt=""
+                                className={item.title}
+                              />
+                            </figure>
+                            <p className="m-0">{item.title}</p>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                </li>
               </ul>
             </nav>
           </div>
@@ -178,7 +229,11 @@ const Sidebar = ({ menuSpace }) => {
             <div className="d-flex justify-content-between">
               <div className="user-badge d-flex align-items-center">
                 <figure className="user-image rounded-circle overflow-hidden m-0 me-3">
-                  <img className="w-100" src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="" />
+                  <img
+                    className="w-100"
+                    src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                    alt=""
+                  />
                 </figure>
                 <div>
                   <p className="caption text-gray-700 m-0">Nome do usuário</p>

@@ -1,19 +1,19 @@
 import Button from "../../../../components/Button";
 import ModalDatas from "../ModalDatas";
 
-const VacarionTableDatas = () => {
+const VacationTableDatas = () => {
   return (
     <div className="data-vacation shadow-lg mb-4">
       <div className="d-flex justify-content-between align-items-center p-4 w-100">
         <h6 className="text-primary-400 m-0">Férias</h6>
-        <div>
+        <div className="vacation-table-data">
           <Button
             className="button-primary body-2 py-2 px-5"
             dataBsTarget="#modalRequestVacation"
             onClick=""
             txtButton="+ Solicitar férias"
             type="button"
-            modal={<ModalDatas />}
+            modal={<ModalDatas id="modalRequestVacation" />}
           />
         </div>
       </div>
@@ -73,4 +73,4 @@ const VacarionTableDatas = () => {
     </div>
   );
 };
-export default VacarionTableDatas;
+export default VacationTableDatas;

@@ -32,10 +32,9 @@
     }
   } @else {
     .bg-alert-#{$label} {
-      content: "#{$label}";
       background-color: map-get($map: $map-alert-colors, $key: #{$label});
     }
-    .text-label-#{$label} {
+    .text-alert-#{$label} {
       color: map-get($map: $map-alert-colors, $key: #{$label});
     }
   }

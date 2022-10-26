@@ -1,0 +1,15 @@
+#modal-helpdesk,
+.vacation-table-data {
+  & .modal-dialog {
+    max-width: 650px;
+  }
+  & .button-cancel {
+    background-color: transparent;
+    &:active {
+      background-color: transparent !important;
+    }
+    span {
+      color: #ea005a;
+    }
+  }
+}

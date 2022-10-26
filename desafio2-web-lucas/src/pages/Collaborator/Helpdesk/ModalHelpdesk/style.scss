@@ -1,0 +1,32 @@
+#modal-helpdesk {
+  & .modal-dialog {
+    max-width: 650px;
+    & .modal-content {
+      padding: 16px;
+
+      & .modal-textarea {
+        height: 180px;
+        resize: none;
+      }
+
+      & .input-select-file {
+        border-radius: 8px;
+        border: dashed 2px;
+        cursor: pointer;
+        height: 60px;
+        transition: 0.3s;
+        width: 100%;
+        &:hover {
+          opacity: 0.8;
+        }
+
+        & .upload-icon {
+          left: -8px;
+          position: absolute;
+          top: 50%;
+          transform: translate(-100%, -50%);
+        }
+      }
+    }
+  }
+}

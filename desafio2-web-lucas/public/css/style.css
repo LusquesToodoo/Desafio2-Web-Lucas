@@ -174,47 +174,42 @@ h6 {
 }
 
 .bg-alert-error {
-  content: "error";
   background-color: #ea005a;
 }
 
-.text-label-error {
+.text-alert-error {
   color: #ea005a;
 }
 
 .bg-alert-warning {
-  content: "warning";
   background-color: #fca232;
 }
 
-.text-label-warning {
+.text-alert-warning {
   color: #fca232;
 }
 
 .bg-alert-warning-dark {
-  content: "warning-dark";
   background-color: #eb962f;
 }
 
-.text-label-warning-dark {
+.text-alert-warning-dark {
   color: #eb962f;
 }
 
 .bg-alert-success {
-  content: "success";
   background-color: #00eabd;
 }
 
-.text-label-success {
+.text-alert-success {
   color: #00eabd;
 }
 
 .bg-alert-success-dark {
-  content: "success-dark";
   background-color: #00cca3;
 }
 
-.text-label-success-dark {
+.text-alert-success-dark {
   color: #00cca3;
 }
 

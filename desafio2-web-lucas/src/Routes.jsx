@@ -9,6 +9,8 @@ import RoutesCollaborator from "./pages/Collaborator/RoutesCollaborator";
 import CollaboratorHome from "./pages/Collaborator/Home";
 import Helpdesk from "./pages/Collaborator/Helpdesk";
 import Team from "./pages/Collaborator/Team";
+import Organograma from "./pages/Collaborator/Organograma";
+import Profile from "./pages/Collaborator/Profile";
 
 const App = () => {
   const [userInfo, setUserInfo] = useState("");
@@ -33,7 +35,7 @@ const App = () => {
         />
         <Route
           path="/collaborator-profile"
-          element={<RoutesCollaborator element={notFound} />}
+          element={<RoutesCollaborator element={<Profile />} />}
         />
         <Route
           path="/collaborator-data"
@@ -45,7 +47,7 @@ const App = () => {
         />
         <Route
           path="/collaborator-chart"
-          element={<RoutesCollaborator element={notFound} />}
+          element={<RoutesCollaborator element={<Organograma />} />}
         />
         <Route
           path="/collaborator-helpdesk"

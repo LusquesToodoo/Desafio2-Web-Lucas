@@ -2,6 +2,7 @@ import "./style.scss";
 import Dropdown from "../../../components/Dropdown";
 import Button from "../../../components/Button";
 import { Link } from "react-router-dom";
+import ModalHelpdesk from "./ModalHelpdesk";
 const Helpdesk = () => {
   return (
     <section className="w-100 mt-5 main-helpdesk pb-5">
@@ -19,11 +20,11 @@ const Helpdesk = () => {
             <td className="w-auto">
               <Button
                 className="button-primary body-2 py-2 px-5 border-0"
-                dataBsTarget="#modalRequestVacation"
+                dataBsTarget="#modal-helpdesk"
                 onClick=""
                 txtButton="+ Nova solicitação"
                 type="button"
-                modal={<>Modal vai aqui</>}
+                modal={<ModalHelpdesk />}
               />
             </td>
           </tr>

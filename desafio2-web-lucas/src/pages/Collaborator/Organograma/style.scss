@@ -1,0 +1,72 @@
+.selected-organograma {
+  background-color: #ebedfa;
+  border-bottom: solid 2px #5168f4;
+}
+.organograma {
+  background-color: #fff;
+  min-height: 600px;
+}
+
+.card-organograma {
+  border-radius: 5px;
+  border: solid 0.5px #3e4daa;
+  justify-content: center;
+  position: relative;
+  width: 215px;
+}
+.organograma-traco {
+  width: 20px;
+  height: 25px;
+}
+.organograma-traco-estilo {
+  border-right: solid 2px #adadb2;
+}
+.card-organograma-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.organograma-navigation{
+  p{
+    cursor: pointer;
+  }
+}
+
+.ul-main {
+  overflow: hidden;
+  & .organograma-item {
+    position: relative;
+    width: fit-content;
+    &::before {
+      background-color: #adadb2;
+      content: "";
+      display: block;
+      height: 115px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 2px;
+      z-index: 0;
+    }
+  }
+  & .organograma-list {
+    list-style: none;
+    margin: 49px auto 0;
+    position: relative;
+    width: fit-content;
+    &::before {
+      background-color: #adadb2;
+      min-width: 225px;
+      content: "";
+      display: block;
+      height: 2px;
+      left: calc(50% - 1px);
+      position: absolute;
+      top: -25px;
+      transform: translateX(-50%);
+      width: calc(100% - 213px);
+    }
+  }
+}
