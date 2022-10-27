@@ -45,6 +45,7 @@
     width: 216px;
   }
 }
+
 .change-profile-image {
   border-radius: 50%;
   border: solid 7px #f9f9fa;
@@ -88,14 +89,14 @@
       font-weight: 500;
     }
   }
+  & .information-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(22, 22, 32, 0.15),
+      0px 0px 2px rgba(22, 22, 32, 0.12), 0px 0px 1px rgba(22, 22, 32, 0.04);
+    padding: 24px 32px;
+  }
   & .personal-information {
-    & .personal-information-card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0px 2px 4px rgba(22, 22, 32, 0.15),
-        0px 0px 2px rgba(22, 22, 32, 0.12), 0px 0px 1px rgba(22, 22, 32, 0.04);
-      padding: 24px 32px;
-    }
     & .first-line {
       & .first-field {
         & label {
@@ -144,6 +145,60 @@
       & .third-field {
         & label:first-child {
           width: 250px !important;
+        }
+      }
+    }
+  }
+  & .professional {
+    & .add {
+      height: 24px !important;
+      min-width: 0;
+      width: 24px !important;
+    }
+    & .formation-item,
+    .certificate-item {
+      background-color: #f9f9fa;
+      border-radius: 5px;
+    }
+    & .second-field {
+      & .add {
+        bottom: 8px;
+        height: 51px !important;
+        position: relative;
+        width: 51px !important;
+      }
+      & .specialty-item {
+        align-items: center;
+        border-radius: 5px;
+        color: $text-light;
+        display: flex;
+        font-size: 12px;
+        font-weight: 400;
+        gap: 4px;
+        padding: 8px 10px;
+        width: fit-content;
+        & .button-close {
+          cursor: pointer;
+          opacity: 0.6;
+          font-size: 18px;
+        }
+      }
+    }
+    & #academic-formation {
+      & .modal-dialog {
+        max-width: 600px;
+        & .modal-content {
+          padding: 32px !important;
+          & .modal-header {
+            & .btn-close {
+              background-size: 12px;
+            }
+          }
+          & .modal-body {
+            fieldset > div {
+              width: 100%;
+            }
+          }
         }
       }
     }

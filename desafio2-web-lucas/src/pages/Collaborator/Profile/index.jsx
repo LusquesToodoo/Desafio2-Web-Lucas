@@ -11,9 +11,9 @@ import Dropdown from "../../../components/Dropdown";
 const PersonalInformation = () => {
   return (
     <>
-      <div className="personal-information mb-5">
+      <div className="personal-information">
         <div className="first-line d-flex gap-4 mb-4">
-          <div className="personal-information-card col-7">
+          <div className="information-card col-7">
             <form className="" action="">
               <h6 className="text-primary-400 mb-4">Dados pessoais</h6>
               <fieldset className="first-field d-flex gap-2 mb-1">
@@ -41,7 +41,7 @@ const PersonalInformation = () => {
               </fieldset>
             </form>
           </div>
-          <div className="personal-information-card w-100">
+          <div className="information-card w-100">
             <h6 className="text-primary-400 mb-4">Sobre mim</h6>
             <form>
               <textarea
@@ -53,7 +53,7 @@ const PersonalInformation = () => {
         </div>
 
         <div className="second-line d-flex gap-4">
-          <div className="personal-information-card w-100">
+          <div className="information-card w-100">
             <h6 className="text-primary-400 mb-4">Dados bancários</h6>
             <form>
               <fieldset className="mb-2">
@@ -76,7 +76,7 @@ const PersonalInformation = () => {
               </fieldset>
             </form>
           </div>
-          <div className="personal-information-card col-7">
+          <div className="information-card col-7">
             <form className="" action="">
               <h6 className="text-primary-400 mb-4">dados de contato</h6>
               <fieldset className="first-field d-flex gap-2 mb-2">
@@ -93,6 +93,221 @@ const PersonalInformation = () => {
                 <Input txtLabel="Bairro*" txtPlaceholder="Planalto Paulista" />
               </fieldset>
             </form>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+const Professional = () => {
+  const ModalAcademicEducation = ({ dataBsTarget }) => {
+    return (
+      <div
+        aria-hidden="true"
+        aria-labelledby="staticBackdropLabel"
+        class="modal fade"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        id={dataBsTarget}
+        tabindex="-1"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header p-0 border-0 mb-4">
+              <h5 className="text-primary-400">Formação acadêmica</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form>
+              <div class="modal-body p-0">
+                <Input
+                  txtLabel="Instituição de ensino*"
+                  txtPlaceholder="ex. Inatel"
+                />
+                <span className="d-block m-2"></span>
+                <Input
+                  txtLabel="Formação*"
+                  txtPlaceholder="ex. Ciência da Computação"
+                />
+                <fieldset className="d-flex gap-2">
+                  <Dropdown
+                    txtLabel="Ano de início"
+                    optionsList={["2022"]}
+                    txtPlaceholder="Escolha o ano"
+                  />
+                  <Dropdown
+                    txtLabel="Ano de conclusão (ou previsão)"
+                    optionsList={["2022"]}
+                    txtPlaceholder="Escolha o ano"
+                  />
+                </fieldset>
+              </div>
+              <div class="modal-footer p-0 border-0 d-flex justify-content-center mt-3">
+                <Button
+                  className="button-gray"
+                  txtButton="Salvar"
+                  type="submit"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  return (
+    <>
+      <div className="professional d-flex gap-4">
+        <div className="first-column w-100">
+          <div className="first-field information-card mb-4">
+            <div className="d-flex justify-content-between mb-4">
+              <h6 className="text-primary-400 m-0">Formação acadêmica</h6>
+              <div>
+                <Button
+                  className="button-primary add p-0"
+                  modal={
+                    <ModalAcademicEducation dataBsTarget="academic-formation" />
+                  }
+                  dataBsTarget="#academic-formation"
+                  txtButton="+"
+                />
+              </div>
+            </div>
+            <ul className="list-unstyled mb-3">
+              <li className="formation-item d-flex align-items-center justify-content-between py-2 px-3">
+                <div>
+                  <p className="body-1-semibold m-0">
+                    Universidade José do Rosário Vellano
+                  </p>
+                  <p className="body-2 text-gray-500 mb-2">
+                    Ciência da Computação
+                  </p>
+                  <p className="caption text-gray-400 mb-0">2015-2018</p>
+                </div>
+                <div className="text-primary-500">
+                  <span class="material-icons">edit</span>
+                </div>
+              </li>
+            </ul>
+            <p className="caption text-primary-500 text-center m-0">ver mais</p>
+          </div>
+          <div className="second-field information-card">
+            <h6 className="text-primary-400 mb-3">Especialidades</h6>
+            <div className="d-flex align-items-end gap-2 mb-3">
+              <Input
+                txtLabel="Competência"
+                txtPlaceholder="ex. metodologias ágeis"
+              />
+              <Button txtButton="+" className="button-primary add p-0" />
+            </div>
+            <ul className="list-unstyled d-flex gap-2 flex-wrap">
+              <li className="specialty-item bg-primary-400">
+                <span>UI/UX</span>
+                <span className="button-close">
+                  <i class="bi bi-x"></i>
+                </span>
+              </li>
+              <li className="specialty-item bg-alert-success">
+                <span>Adobe Photoshop</span>
+                <span className="button-close">
+                  <i class="bi bi-x"></i>
+                </span>
+              </li>
+              <li className="specialty-item bg-primary-500">
+                <span>Figma</span>
+                <span className="button-close">
+                  <i class="bi bi-x"></i>
+                </span>
+              </li>
+              <li className="specialty-item bg-primary-300">
+                <span>Trello</span>
+                <span className="button-close">
+                  <i class="bi bi-x"></i>
+                </span>
+              </li>
+              <li className="specialty-item bg-primary-600">
+                <span>Wireframes</span>
+                <span className="button-close">
+                  <i class="bi bi-x"></i>
+                </span>
+              </li>
+              <li className="specialty-item bg-gray-300">
+                <span>...</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="second-column w-100">
+          <div className="information-card h-100">
+            <div className="d-flex align-items-center justify-content-between mb-4">
+              <h6 className="text-primary-400">Certificados</h6>
+              <div>
+                <Button txtButton="+" className="button-primary add p-0" />
+              </div>
+            </div>
+            <ul className="list-unstyled mb-3">
+              <li className="certificate-item d-flex align-items-center justify-content-between py-2 px-3 mb-2">
+                <div>
+                  <p className="body-1-semibold m-0">
+                    Universidade José do Rosário Vellano
+                  </p>
+                  <p className="body-2 text-gray-500 mb-2">
+                    Ciência da Computação
+                  </p>
+                  <p className="caption text-gray-400 mb-0">2009</p>
+                </div>
+                <div className="text-primary-500">
+                  <span class="material-icons">edit</span>
+                </div>
+              </li>
+              <li className="certificate-item d-flex align-items-center justify-content-between py-2 px-3 mb-2">
+                <div>
+                  <p className="body-1-semibold m-0">
+                    Universidade José do Rosário Vellano
+                  </p>
+                  <p className="body-2 text-gray-500 mb-2">
+                    Ciência da Computação
+                  </p>
+                  <p className="caption text-gray-400 mb-0">2009</p>
+                </div>
+                <div className="text-primary-500">
+                  <span class="material-icons">edit</span>
+                </div>
+              </li>
+              <li className="certificate-item d-flex align-items-center justify-content-between py-2 px-3 mb-2">
+                <div>
+                  <p className="body-1-semibold m-0">
+                    Universidade José do Rosário Vellano
+                  </p>
+                  <p className="body-2 text-gray-500 mb-2">
+                    Ciência da Computação
+                  </p>
+                  <p className="caption text-gray-400 mb-0">2009</p>
+                </div>
+                <div className="text-primary-500">
+                  <span class="material-icons">edit</span>
+                </div>
+              </li>
+              <li className="certificate-item d-flex align-items-center justify-content-between py-2 px-3 mb-2">
+                <div>
+                  <p className="body-1-semibold m-0">
+                    Universidade José do Rosário Vellano
+                  </p>
+                  <p className="body-2 text-gray-500 mb-2">
+                    Ciência da Computação
+                  </p>
+                  <p className="caption text-gray-400 mb-0">2009</p>
+                </div>
+                <div className="text-primary-500">
+                  <span class="material-icons">edit</span>
+                </div>
+              </li>
+            </ul>
+            <p className="caption text-primary-500 text-center">ver mais</p>
           </div>
         </div>
       </div>
@@ -167,11 +382,11 @@ const HeaderProfile = () => {
 const MainProfile = () => {
   const profilePagesElements = {
     ["Info pessoal"]: <PersonalInformation />,
-    ["Profissional"]: "Elemento - Profissional",
+    ["Profissional"]: <Professional />,
     ["Geral"]: "Elemento - Geral",
     ["Senha"]: "Elemento - Senha",
   };
-  const [pageActive, setPageActive] = useState("Info pessoal");
+  const [pageActive, setPageActive] = useState("Profissional");
   return (
     <section className="main-profile-info">
       <div className="d-flex align-content-center justify-content-between mb-4 pb-2">
@@ -196,7 +411,7 @@ const MainProfile = () => {
           <Button className="button-gray py-2" txtButton="Salvar" />
         </div>
       </div>
-      <div className="">{profilePagesElements[pageActive]}</div>
+      <div className="mb-5">{profilePagesElements[pageActive]}</div>
     </section>
   );
 };
