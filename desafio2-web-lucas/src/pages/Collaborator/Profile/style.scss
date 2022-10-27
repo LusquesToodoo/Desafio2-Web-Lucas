@@ -1,3 +1,5 @@
+@import "../../../scss/variables";
+
 .profile-info-container {
   & .profile-info-header {
     align-items: flex-end;
@@ -43,7 +45,6 @@
     width: 216px;
   }
 }
-
 .change-profile-image {
   border-radius: 50%;
   border: solid 7px #f9f9fa;
@@ -53,4 +54,98 @@
   position: absolute;
   right: 0;
   width: 55px;
+}
+
+.main-profile-info {
+  & .nav-profile {
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+    &::after {
+      background-color: map-get($map: $map-primary-colors, $key: "400");
+      bottom: -2px;
+      content: "";
+      display: block;
+      height: 0px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      transition: 0.3s;
+      width: 0%;
+    }
+    &.active {
+      background-color: #ebedfa;
+      &::after {
+        height: 2px;
+        width: 100%;
+      }
+    }
+  }
+  & .button-gray {
+    & .button-info {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+  & .personal-information {
+    & .personal-information-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 2px 4px rgba(22, 22, 32, 0.15),
+        0px 0px 2px rgba(22, 22, 32, 0.12), 0px 0px 1px rgba(22, 22, 32, 0.04);
+      padding: 24px 32px;
+    }
+    & .first-line {
+      & .first-field {
+        & label {
+          width: 180px !important;
+        }
+        & span {
+          & label {
+            width: 162px !important;
+            input {
+              padding-right: 24px !important;
+            }
+          }
+        }
+      }
+      & .third-field {
+        label {
+          &:nth-child(2) {
+            width: 220px !important;
+          }
+        }
+      }
+      & .modal-textarea {
+        height: 260px;
+        resize: none;
+      }
+    }
+    & .second-line {
+      & .bank-account {
+        & label {
+          width: 240px !important;
+        }
+      }
+      & .first-field {
+        & label:first-child {
+          width: 250px !important;
+        }
+        & label:last-child {
+          width: 95px !important;
+        }
+      }
+      & .second-field {
+        & label:last-child {
+          width: 150px !important;
+        }
+      }
+      & .third-field {
+        & label:first-child {
+          width: 250px !important;
+        }
+      }
+    }
+  }
 }
