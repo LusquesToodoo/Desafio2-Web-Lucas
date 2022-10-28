@@ -13,13 +13,7 @@ import Organograma from "./pages/Collaborator/Organograma";
 import Profile from "./pages/Collaborator/Profile";
 
 const App = () => {
-  const [userInfo, setUserInfo] = useState("");
-  const notFound = (
-    <div className="text-center text-light bg-alert-error py-5">
-      Página não encontrada
-    </div>
-  );
-
+  
   return (
     <Router>
       <Routes>

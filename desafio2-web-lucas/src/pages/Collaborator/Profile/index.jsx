@@ -1,3 +1,4 @@
+/*  eslint-disabled*/
 import "./style.scss";
 import { useState } from "react";
 import Button from "../../../components/Button";
@@ -577,3 +578,4 @@ const Profile = () => {
   );
 };
 export default Profile;
+/* eslint-enable */

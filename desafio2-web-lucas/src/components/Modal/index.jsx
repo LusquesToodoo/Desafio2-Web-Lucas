@@ -1,6 +1,5 @@
 import "./style.scss";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import Button from "../Button";
 import Loading from "./loading.gif";
 

@@ -1,6 +1,4 @@
-import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import CollaboratorHome from "./Home";
 import SidebarCollaborator from "./SidebarCollaborator";
 
 const RoutesCollaborator = ({ element }) => {
