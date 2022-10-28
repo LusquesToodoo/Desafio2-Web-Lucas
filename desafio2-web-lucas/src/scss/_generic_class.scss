@@ -6,7 +6,7 @@
 // methods
 @each $label in $list-font-weights {
   .fw-#{$label} {
-    font-weight: $label;
+    font-weight: $label !important;
   }
 }
 @each $label in $list-primary-colors {

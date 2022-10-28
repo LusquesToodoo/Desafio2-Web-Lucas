@@ -202,7 +202,10 @@ const Professional = () => {
                 txtLabel="Competência"
                 txtPlaceholder="ex. metodologias ágeis"
               />
-              <Button txtButton="+" className="button-primary add p-0" />
+              <Button
+                txtButton="+"
+                className="button-primary add input-add p-0"
+              />
             </div>
             <ul className="list-unstyled d-flex gap-2 flex-wrap">
               <li className="specialty-item bg-primary-400">
@@ -314,6 +317,155 @@ const Professional = () => {
     </>
   );
 };
+const Geral = () => {
+  return (
+    <>
+      <div className="Geral">
+        <div className="first-line d-flex gap-4">
+          <div className="information-card w-100">
+            <div className="d-flex justify-content-between mb-4">
+              <h6 className="text-primary-400 m-0">Voluntariado</h6>
+              <div>
+                <Button
+                  className="button-primary add p-0"
+                  modal={
+                    ""
+                    // <ModalAcademicEducation dataBsTarget="academic-formation" />
+                  }
+                  dataBsTarget="#academic-formation"
+                  txtButton="+"
+                />
+              </div>
+            </div>
+            <ul className="list-unstyled mb-3">
+              <li className="volunteer-item py-2 px-3">
+                <div className="d-flex align-items-center justify-content-between mb-3">
+                  <div>
+                    <p className="body-1-semibold m-0">
+                      Assembleia de Deus Missão
+                    </p>
+                    <p className="body-2 text-gray-500 mb-2">Líder Criativo</p>
+                    <p className="caption text-gray-400 mb-0">2013-presente</p>
+                  </div>
+                  <div className="text-primary-500">
+                    <span class="material-icons">edit</span>
+                  </div>
+                </div>
+                <p className="body-2 fw-300 text-gray-600 pb-2">
+                  Responsável pela liderança criativa do ministério de mídia do
+                  campo da Assembleia de Deus Missão há mais de 8 anos, atuando
+                  na criação de campanhas publicitárias, organização de
+                  congressos locais e também pelas fotos dos eventos.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div className="information-card w-100">
+            <h6 className="text-primary-400 mb-4">Interesses</h6>
+            <div className="d-flex align-items-end gap-2 mb-3">
+              <Input
+                txtLabel="Competência"
+                txtPlaceholder="ex. metodologias ágeis"
+              />
+              <Button
+                txtButton="+"
+                className="button-primary add input-add p-0"
+              />
+            </div>
+            <ul className="list-unstyled d-flex gap-2 flex-wrap">
+              <li className="interests-item bg-primary-400">
+                <span>Música</span>
+                <span className="button-close">
+                  <i class="bi bi-x"></i>
+                </span>
+              </li>
+              <li className="interests-item bg-alert-success">
+                <span>Cinema</span>
+                <span className="button-close">
+                  <i class="bi bi-x"></i>
+                </span>
+              </li>
+              <li className="interests-item bg-primary-500">
+                <span>Fotografia</span>
+                <span className="button-close">
+                  <i class="bi bi-x"></i>
+                </span>
+              </li>
+              <li className="interests-item bg-primary-300">
+                <span>Literatura</span>
+                <span className="button-close">
+                  <i class="bi bi-x"></i>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="second-line mt-4">
+          <div className="information-card">
+            <div className="d-flex justify-content-between mb-5">
+              <h6 className="text-primary-400 m-0">Idiomas</h6>
+              <div>
+                <Button
+                  className="button-primary add p-0"
+                  dataBsTarget="#academic-formation"
+                  txtButton="+"
+                />
+              </div>
+            </div>
+            <ul className="languages-list list-unstyled m-0">
+              <li className="languages-item languages-item-header text-gray-400 mb-3">
+                <div className="w-100">
+                  <p className="m-0">Idioma</p>
+                </div>
+                <div className="w-100">
+                  <p className="m-0">Avançado</p>
+                </div>
+              </li>
+              <li className="languages-item">
+                <div className="w-100">
+                  <p className="fw-700 m-0">Inglês</p>
+                </div>
+                <div className="w-100 d-flex align-content-center justify-content-between">
+                  <p className="m-0">Avançado</p>
+                  <span class="material-icons text-primary-500">edit</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+const Password = () => {
+  return (
+    <>
+      <div className="page-profile-Password px-3">
+        <div className="w-50">
+          <Input
+            txtLabel="Senha atual"
+            txtPlaceholder="Insira sua senha atual"
+          />
+          <span className="d-block m-2"></span>
+          <Input
+            txtLabel="Nova senhal"
+            txtPlaceholder="Ao menos 8 caracteres"
+          />
+          <span className="d-block m-2"></span>
+          <Input
+            txtLabel="Repetir nova senha"
+            txtPlaceholder="Insira sua senha atual"
+          />
+          <p className="caption text-gray-400 mt-4 pe-5">
+            Dica: Sua senha deve ter, ao menos, 8 caracteres. Para torná-la
+            ainda mais forte, você deve usar caracteres maiúsculos e minúsculos,
+            números e símbolos, como: #$@%!&*.
+          </p>
+        </div>
+      </div>
+    </>
+  );
+};
 
 const HeaderProfile = () => {
   return (
@@ -383,10 +535,10 @@ const MainProfile = () => {
   const profilePagesElements = {
     ["Info pessoal"]: <PersonalInformation />,
     ["Profissional"]: <Professional />,
-    ["Geral"]: "Elemento - Geral",
-    ["Senha"]: "Elemento - Senha",
+    ["Geral"]: <Geral />,
+    ["Senha"]: <Password />,
   };
-  const [pageActive, setPageActive] = useState("Profissional");
+  const [pageActive, setPageActive] = useState("Info pessoal");
   return (
     <section className="main-profile-info">
       <div className="d-flex align-content-center justify-content-between mb-4 pb-2">

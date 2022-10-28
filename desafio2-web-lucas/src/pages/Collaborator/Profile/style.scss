@@ -1,5 +1,27 @@
 @import "../../../scss/variables";
 
+%list-item {
+  background-color: #f9f9fa;
+  border-radius: 5px;
+}
+
+%list-item-2 {
+  align-items: center;
+  border-radius: 5px;
+  color: $text-light;
+  display: flex;
+  font-size: 12px;
+  font-weight: 400;
+  gap: 4px;
+  padding: 8px 10px;
+  width: fit-content;
+  & .button-close {
+    cursor: pointer;
+    opacity: 0.6;
+    font-size: 18px;
+  }
+}
+
 .profile-info-container {
   & .profile-info-header {
     align-items: flex-end;
@@ -55,6 +77,24 @@
   position: absolute;
   right: 0;
   width: 55px;
+}
+
+.add {
+  height: 24px !important;
+  min-width: 0;
+  width: 24px !important;
+  &.input-add {
+    bottom: 8px;
+    height: 51px !important;
+    position: relative;
+    width: 51px !important;
+  }
+}
+
+.formation-item,
+.certificate-item,
+.volunteer-item {
+  @extend %list-item;
 }
 
 .main-profile-info {
@@ -150,38 +190,9 @@
     }
   }
   & .professional {
-    & .add {
-      height: 24px !important;
-      min-width: 0;
-      width: 24px !important;
-    }
-    & .formation-item,
-    .certificate-item {
-      background-color: #f9f9fa;
-      border-radius: 5px;
-    }
     & .second-field {
-      & .add {
-        bottom: 8px;
-        height: 51px !important;
-        position: relative;
-        width: 51px !important;
-      }
       & .specialty-item {
-        align-items: center;
-        border-radius: 5px;
-        color: $text-light;
-        display: flex;
-        font-size: 12px;
-        font-weight: 400;
-        gap: 4px;
-        padding: 8px 10px;
-        width: fit-content;
-        & .button-close {
-          cursor: pointer;
-          opacity: 0.6;
-          font-size: 18px;
-        }
+        @extend %list-item-2;
       }
     }
     & #academic-formation {
@@ -200,6 +211,27 @@
             }
           }
         }
+      }
+    }
+  }
+  & .Geral {
+    .material-icons {
+      cursor: pointer;
+    }
+    & .interests-item {
+      @extend %list-item-2;
+    }
+    & .languages-item {
+      padding: 20px 24px;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      &:not(.languages-item-header) {
+        @extend %list-item;
+      }
+      &.languages-item-header {
+        font-size: 14px;
+        font-weight: 600;
       }
     }
   }
