@@ -60,7 +60,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>
@@ -75,7 +75,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>
@@ -90,7 +90,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>
@@ -105,7 +105,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>
@@ -120,7 +120,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>
@@ -135,7 +135,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>
@@ -150,7 +150,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>
@@ -165,7 +165,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>
@@ -180,7 +180,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>
@@ -195,7 +195,7 @@ const Team = () => {
               <figure className="profile-table-image m-0 me-4 rounded-circle">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt=""
                 />
               </figure>

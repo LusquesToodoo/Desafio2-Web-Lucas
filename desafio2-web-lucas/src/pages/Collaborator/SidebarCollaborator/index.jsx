@@ -231,7 +231,7 @@ const Sidebar = ({ menuSpace }) => {
                 <figure className="user-image rounded-circle overflow-hidden m-0 me-3">
                   <img
                     className="w-100"
-                    src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                    src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                     alt=""
                   />
                 </figure>

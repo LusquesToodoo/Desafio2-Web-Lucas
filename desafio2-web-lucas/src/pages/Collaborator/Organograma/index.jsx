@@ -5,7 +5,7 @@ const CardOrganograma = () => {
   return (
     <div className="card-organograma bg-primary-50 d-flex pe-1 py-2 gap-2">
       <figure className="card-organograma-image shadow-lg bg-primary-600 m-0">
-        <img></img>
+        <img src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
       </figure>
 
       <div className="d-flex flex-column g-1 pe-4">

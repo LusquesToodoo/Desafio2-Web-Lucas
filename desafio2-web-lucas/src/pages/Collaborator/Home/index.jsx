@@ -27,7 +27,7 @@ const CollaboratorHome = () => {
       birthdayList.map(() => (
         <li className="d-flex align-item mb-3">
           <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-            <img className="w-100" src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="" />
+            <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
           </figure>
           <div>
             <p className="body-2 text-primary-600 mb-1">
@@ -75,7 +75,7 @@ const CollaboratorHome = () => {
               <li className="news-list-item px-3 rounded-1 d-flex align-items-center justify-content-between shadow-sm mb-2">
                 <div className="d-flex align-items-center">
                   <figure className="list-report-image rounded-circle overflow-hidden m-0 me-4">
-                    <img className="w-100" src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="" />
+                    <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
@@ -100,7 +100,7 @@ const CollaboratorHome = () => {
               <li className="news-list-item px-3 rounded-1 d-flex align-items-center justify-content-between shadow-sm mb-2">
                 <div className="d-flex align-items-center">
                   <figure className="list-report-image rounded-circle overflow-hidden m-0 me-4">
-                    <img className="w-100" src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="" />
+                    <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
@@ -125,7 +125,7 @@ const CollaboratorHome = () => {
               <li className="news-list-item px-3 rounded-1 d-flex align-items-center justify-content-between shadow-sm mb-2">
                 <div className="d-flex align-items-center">
                   <figure className="list-report-image rounded-circle overflow-hidden m-0 me-4">
-                    <img className="w-100" src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="" />
+                    <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
@@ -150,7 +150,7 @@ const CollaboratorHome = () => {
               <li className="news-list-item px-3 rounded-1 d-flex align-items-center justify-content-between shadow-sm">
                 <div className="d-flex align-items-center">
                   <figure className="list-report-image rounded-circle overflow-hidden m-0 me-4">
-                    <img className="w-100" src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="" />
+                    <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">

@@ -22,13 +22,17 @@
   border-right: solid 2px #adadb2;
 }
 .card-organograma-image {
-  width: 50px;
-  height: 50px;
+  opacity: 0.5;
   border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  & img {
+    width: 50px;
+  }
 }
 
-.organograma-navigation{
-  p{
+.organograma-navigation {
+  p {
     cursor: pointer;
   }
 }

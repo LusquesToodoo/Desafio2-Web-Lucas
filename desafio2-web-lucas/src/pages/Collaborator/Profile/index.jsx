@@ -475,7 +475,7 @@ const HeaderProfile = () => {
         <div className="profile-info-header-cover">
           <figure>
             <img
-              src="https://c4.wallpaperflare.com/wallpaper/415/247/651/bb-8-jakku-robot-star-wars-wallpaper-preview.jpg"
+              src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/Cover.png"
               alt="capa"
             />
           </figure>
@@ -491,7 +491,7 @@ const HeaderProfile = () => {
               <figure className="profile-info-image m-0">
                 <img
                   className="w-100"
-                  src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
                   alt="perfil"
                 />
               </figure>
