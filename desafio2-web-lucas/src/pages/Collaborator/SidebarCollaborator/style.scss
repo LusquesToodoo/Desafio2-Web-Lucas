@@ -8,7 +8,7 @@
 }
 
 .sidebar-collaborator {
-  height: 100vh;
+  min-height: 100vh;
   max-width: 275px;
   & .offcanvas-header {
     margin-bottom: 72px;
