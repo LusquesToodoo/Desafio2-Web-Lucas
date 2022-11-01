@@ -4,6 +4,20 @@ import Button from "../../../components/Button";
 import { useEffect, useState } from "react";
 
 const CollaboratorHome = () => {
+  const mounth = [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
+  ];
   let birthdayList = [];
   const [birthdayItems, setBirthdayItems] = useState(undefined);
 
@@ -16,24 +30,33 @@ const CollaboratorHome = () => {
   };
 
   const createBirthdayList = () => {
+    const filtrateDate = ([day, birthdayMounth, ...year]) => {
+      return `${day} de ${mounth[+birthdayMounth - 1]}`;
+    };
+
     if (!birthdayList.length) {
       setBirthdayItems(
         <p className="overline">Não há aniversariantes para este mês...</p>,
       );
-      birthdayList = ["oie", "ok"]; //limao - apagar e descomentar o return abaixo
-      // return;
+      return;
     }
+
     setBirthdayItems(
-      birthdayList.map(() => (
+      birthdayList.map((person) => (
         <li className="d-flex align-item mb-3">
           <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-            <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
+            <img className="w-100" src={person.picture} alt={person.name} />
           </figure>
           <div>
-            <p className="body-2 text-primary-600 mb-1">
-              Gabriel Junior de Souza
+            <p className="body-2 text-primary-600 mb-1">{person.name}</p>
+            <p className="caption-regular text-gray-400 m-0">
+              {filtrateDate(
+                person.birthday
+                  .split(/[A-z]/)[0]
+                  .split("-")
+                  .reverse()
+              )}
             </p>
-            <p className="caption-regular text-gray-400 m-0">1 de julho</p>
           </div>
         </li>
       )),
@@ -51,6 +74,7 @@ const CollaboratorHome = () => {
       })
       .catch((error) => {
         console.log(error);
+        alert("error");
       });
     createBirthdayList();
   };
@@ -75,7 +99,11 @@ const CollaboratorHome = () => {
               <li className="news-list-item px-3 rounded-1 d-flex align-items-center justify-content-between shadow-sm mb-2">
                 <div className="d-flex align-items-center">
                   <figure className="list-report-image rounded-circle overflow-hidden m-0 me-4">
-                    <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
+                    <img
+                      className="w-100"
+                      src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
+                      alt=""
+                    />
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
@@ -100,7 +128,11 @@ const CollaboratorHome = () => {
               <li className="news-list-item px-3 rounded-1 d-flex align-items-center justify-content-between shadow-sm mb-2">
                 <div className="d-flex align-items-center">
                   <figure className="list-report-image rounded-circle overflow-hidden m-0 me-4">
-                    <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
+                    <img
+                      className="w-100"
+                      src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
+                      alt=""
+                    />
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
@@ -125,7 +157,11 @@ const CollaboratorHome = () => {
               <li className="news-list-item px-3 rounded-1 d-flex align-items-center justify-content-between shadow-sm mb-2">
                 <div className="d-flex align-items-center">
                   <figure className="list-report-image rounded-circle overflow-hidden m-0 me-4">
-                    <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
+                    <img
+                      className="w-100"
+                      src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
+                      alt=""
+                    />
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
@@ -150,7 +186,11 @@ const CollaboratorHome = () => {
               <li className="news-list-item px-3 rounded-1 d-flex align-items-center justify-content-between shadow-sm">
                 <div className="d-flex align-items-center">
                   <figure className="list-report-image rounded-circle overflow-hidden m-0 me-4">
-                    <img className="w-100" src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png" alt="" />
+                    <img
+                      className="w-100"
+                      src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
+                      alt=""
+                    />
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">

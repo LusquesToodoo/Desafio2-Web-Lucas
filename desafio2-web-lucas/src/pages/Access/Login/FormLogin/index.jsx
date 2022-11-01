@@ -42,6 +42,8 @@ const FormLogin = () => {
 
         localStorage.removeItem("token");
         sessionStorage.removeItem("token");
+        localStorage.removeItem("userInfo");
+        localStorage.setItem("userId", response.data.id);
         rememberPassword
           ? localStorage.setItem("token", response.data.token)
           : sessionStorage.setItem("token", response.data.token);

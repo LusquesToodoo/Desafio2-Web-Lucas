@@ -1,5 +1,6 @@
 import "./style.scss";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import chart from "./images/chart-gray.svg";
 import data from "./images/data-gray.svg";
 import expand from "./images/Expand.png";
@@ -13,6 +14,7 @@ import promotions from "./images/promotions.svg";
 import registration from "./images/registration.svg";
 import team from "./images/team-gray.svg";
 import ToodooLogo from "./images/Toodoo-logo.png";
+import { useEffect, useState } from "react";
 
 const collaboratorNavItems = [
   {
@@ -63,26 +65,50 @@ const administrativeItems = [
     suffix: "",
   },
 ];
+const authorization = {
+  headers: {
+    Authorization: `Bearer ${
+      localStorage.getItem("token") || sessionStorage.getItem("token")
+    }`,
+  },
+};
 
 const selectElement = (element, elementClass) => {
-  console.log("passei aqui");
   return element.classList.contains(elementClass)
     ? element
     : selectElement(element.parentNode, elementClass);
 };
 
 const Sidebar = ({ menuSpace }) => {
+  const [user, setUser] = useState("");
+  const userInfo = async () => {
+    await axios
+      .get(
+        `https://erm-api.azurewebsites.net/Employee/${localStorage.getItem(
+          "userId",
+        )}`,
+        authorization,
+      )
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("erro na sidebar");
+      });
+  };
+  userInfo();
   const currentActive = (e) => {
     const lastActive = document.querySelector(".navigation-item.active");
     lastActive.classList.remove("active");
     const currentElement = selectElement(e.target, "navigation-item");
-    console.log();
     currentElement.classList.add("active");
   };
   const btnClick = () => {
     menuSpace();
   };
-
+  const currentWindow =
+    window.location.href.split("-")[window.location.href.split("-").length - 1];
   return (
     <>
       <div
@@ -123,7 +149,12 @@ const Sidebar = ({ menuSpace }) => {
             </div>
             <nav className="sidebar-navigation">
               <ul className="text-sidebar p-0">
-                <li className="navigation-item active" onClick={currentActive}>
+                <li
+                  className={`navigation-item ${
+                    currentWindow === "home" ? "active" : ""
+                  }`}
+                  onClick={currentActive}
+                >
                   <Link
                     className="text-gray-600 d-flex align-items-center gap-4 text-decoration-none py-3 mb-4 ps-4"
                     to="/collaborator-home"
@@ -157,7 +188,9 @@ const Sidebar = ({ menuSpace }) => {
                   <ul className="collapse p-0" id="collaboratorNavItems">
                     {collaboratorNavItems.map((item, i) => (
                       <li
-                        className="navigation-item"
+                        className={`navigation-item ${
+                          currentWindow === item.suffix ? "active" : ""
+                        }`}
                         key={`item.suffix-${i}`}
                         onClick={currentActive}
                       >
@@ -178,23 +211,26 @@ const Sidebar = ({ menuSpace }) => {
                     ))}
                   </ul>
                 </li>
-                <li className="collaborator-group ps-4 pe-3">
-                  <a
-                    aria-controls=""
-                    aria-expanded="false"
-                    className="
+                {user.profile === "administrator" && (
+                  <li className="collaborator-group ps-4 pe-3">
+                    <a
+                      aria-controls=""
+                      aria-expanded="false"
+                      className="
                 overline text-gray-400 d-flex
                 align-items-center justify-content-between text-decoration-none text-uppercase m-0 py-3 collapsed"
-                    data-bs-toggle="collapse"
-                    href="#administrativeNavItems"
-                    role="button"
-                  >
-                    <p className="m-0 text-decoration-none">Administrativo</p>
-                    <figure className="home m-0 arrow-top">
-                      <img src={menuArrow} alt="" className="arrow" />
-                    </figure>
-                  </a>
-                </li>
+                      data-bs-toggle="collapse"
+                      href="#administrativeNavItems"
+                      role="button"
+                    >
+                      <p className="m-0 text-decoration-none">Administrativo</p>
+                      <figure className="home m-0 arrow-top">
+                        <img src={menuArrow} alt="" className="arrow" />
+                      </figure>
+                    </a>
+                  </li>
+                )}
+
                 <li>
                   <li>
                     <ul className="collapse p-0" id="administrativeNavItems">
@@ -206,7 +242,9 @@ const Sidebar = ({ menuSpace }) => {
                         >
                           <Link
                             className="text-gray-600 d-flex align-items-center gap-4 text-decoration-none ps-4 py-3"
-                            to={item.suffix ? `/collaborator-${item.suffix}` : ""}
+                            to={
+                              item.suffix ? `/collaborator-${item.suffix}` : ""
+                            }
                           >
                             <figure className="home m-0">
                               <img
@@ -231,13 +269,20 @@ const Sidebar = ({ menuSpace }) => {
                 <figure className="user-image rounded-circle overflow-hidden m-0 me-3">
                   <img
                     className="w-100"
-                    src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
+                    src={
+                      user.picture ||
+                      "https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/src/components/Modal/loading.gif"
+                    }
                     alt=""
                   />
                 </figure>
                 <div>
-                  <p className="caption text-gray-700 m-0">Nome do usuário</p>
-                  <p className="caption text-gray-400 m-0">email@email.com</p>
+                  <p className="overflow-text caption text-gray-700 m-0">{`${
+                    user.name || "loading..."
+                  }`}</p>
+                  <p className="overflow-text caption text-gray-400 m-0">
+                    {user.corporateEmail}
+                  </p>
                 </div>
               </div>
               <label className="label-go-out">

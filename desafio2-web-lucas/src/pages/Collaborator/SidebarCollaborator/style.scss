@@ -122,3 +122,10 @@
   transition: 0.3s;
   width: 0px;
 }
+
+.overflow-text{
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
