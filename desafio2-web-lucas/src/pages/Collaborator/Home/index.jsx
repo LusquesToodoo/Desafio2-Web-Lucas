@@ -3,6 +3,30 @@ import axios from "axios";
 import Button from "../../../components/Button";
 import { useEffect, useState } from "react";
 
+const authorization = {
+  headers: {
+    Authorization: `Bearer ${
+      localStorage.getItem("token") || sessionStorage.getItem("token")
+    }`,
+  },
+};
+
+const API = async (url, key) => {
+  const link = key ? url + key : url;
+  let result;
+
+  await axios
+    .get(link, authorization)
+    .then((response) => {
+      result = response;
+    })
+    .catch((error) => {
+      console.log("Erro ao fazer requisição");
+      result = error;
+    });
+  return result;
+};
+
 const CollaboratorHome = () => {
   const mounth = [
     "Janeiro",
@@ -20,6 +44,7 @@ const CollaboratorHome = () => {
   ];
   let birthdayList = [];
   const [birthdayItems, setBirthdayItems] = useState(undefined);
+  const [user, setUser] = useState({});
 
   const authorization = {
     headers: {
@@ -45,16 +70,19 @@ const CollaboratorHome = () => {
       birthdayList.map((person) => (
         <li className="d-flex align-item mb-3">
           <figure className="list-birthday-image rounded-circle overflow-hidden m-0 me-4">
-            <img className="w-100" src={person.picture} alt={person.name} />
+            {person.picture ? (
+              <img className="w-100" src={person.picture} alt={person.name} />
+            ) : (
+              <div className="d-flex bg-gray-100 w-100 h-100">
+                <i class="bi bi-person-fill m-auto"></i>
+              </div>
+            )}
           </figure>
           <div>
             <p className="body-2 text-primary-600 mb-1">{person.name}</p>
             <p className="caption-regular text-gray-400 m-0">
               {filtrateDate(
-                person.birthday
-                  .split(/[A-z]/)[0]
-                  .split("-")
-                  .reverse()
+                person.birthday.split(/[A-z]/)[0].split("-").reverse(),
               )}
             </p>
           </div>
@@ -64,30 +92,46 @@ const CollaboratorHome = () => {
   };
 
   const getBirthdayList = async () => {
+    birthdayList = await API(
+      "https://erm-api.azurewebsites.net/Employee/birthdayOfTheMonth",
+    );
+    birthdayList = birthdayList.data;
+    console.log(birthdayList);
+    createBirthdayList();
+  };
+  const getUserInfo = async () => {
+    const authorization = {
+      headers: {
+        Authorization: `Bearer ${
+          localStorage.getItem("token") || sessionStorage.getItem("token")
+        }`,
+      },
+    };
     await axios
       .get(
-        "https://erm-api.azurewebsites.net/Employee/birthdayOfTheMonth",
+        `https://erm-api.azurewebsites.net/Employee/${localStorage.getItem(
+          "userId",
+        )}`,
         authorization,
       )
       .then((response) => {
-        birthdayList = response.data;
+        setUser(response.data);
       })
       .catch((error) => {
         console.log(error);
-        alert("error");
       });
-    createBirthdayList();
   };
 
   useEffect(() => {
     getBirthdayList();
+    getUserInfo();
   }, []);
 
   return (
     <>
       <div className="main-content col-11 mt-5 w-100">
         <div>
-          <h3 className="mb-1">Olá, nome_do_usuário</h3>
+          <h3 className="mb-1">Olá, {user.name}</h3>
           <p className="body-2 text-gray-400 mb-5">Bem-vindo de volta.</p>
           <p className="overline-2 text-uppercase text-primary-400 fw-700 ls">
             Notícias e anúncios

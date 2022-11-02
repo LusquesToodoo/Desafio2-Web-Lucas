@@ -28,6 +28,7 @@ const FormLogin = () => {
       .post("https://erm-api.azurewebsites.net/Account/login", user)
       .then((response) => {
         navigate("/collaborator-home");
+        window.location.reload();
         const rememberPassword =
           document.querySelector("#remember-password").checked;
 

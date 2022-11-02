@@ -97,7 +97,10 @@ const Sidebar = ({ menuSpace }) => {
         alert("erro na sidebar");
       });
   };
-  userInfo();
+  useEffect(() => {
+    userInfo();
+  }, []);
+
   const currentActive = (e) => {
     const lastActive = document.querySelector(".navigation-item.active");
     lastActive.classList.remove("active");
