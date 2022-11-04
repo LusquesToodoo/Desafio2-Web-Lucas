@@ -35,7 +35,8 @@ const Modal = ({
                     className="btn-close d-block"
                     data-bs-dismiss="modal"
                     type="button"
-                  ></span>
+                  >
+                  </span>
                 </Link>
               </div>
               <div className="modal-body pt-0 text-center">

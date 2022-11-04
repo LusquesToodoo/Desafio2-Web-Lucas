@@ -1,8 +1,6 @@
 /*  eslint-disabled*/
 import "./style.scss";
-import { useEffect } from "react";
 import { useState } from "react";
-import API from "../../../components/API";
 import Button from "../../../components/Button";
 import Dropdown from "../../../components/Dropdown";
 import facebook from "./images/facebook.png";
@@ -579,14 +577,149 @@ const Password = () => {
 };
 const HeaderProfile = () => {
   const user = UserInformation();
+
+  const ModalProfileImage = () => {
+    return (
+      <>
+        <div
+          class="modal fade"
+          id="modal-profile-image"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header p-4 border-0">
+                <h5
+                  class="modal-title fs-5 text-primary-400"
+                  id="staticBackdropLabel"
+                >
+                  Editar foto
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body text-center">
+                <input id="file-profile-image" className="d-none" type="file" />
+                <label className="user-image" htmlFor="file-profile-image">
+                  <figure className="">
+                    <img
+                      className="w-100"
+                      src={user.picture}
+                      alt="profile image"
+                    />
+                  </figure>
+                </label>
+              </div>
+              <div className="modal-footer border-0 pt-2 d-flex justify-content-center">
+                <span
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  <Button
+                    className="button-primary button-cancel"
+                    txtButton="Cancelar"
+                  />
+                </span>
+                <Button
+                  className="button-gray"
+                  txtButton="Salvar"
+                  type="submit"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+  const ModalProfileCover = () => {
+    return (
+      <>
+        <div
+          class="modal fade"
+          id="modal-profile-cover"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header p-4 border-0">
+                <h5
+                  class="modal-title fs-5 text-primary-400"
+                  id="staticBackdropLabel"
+                >
+                  Editar foto
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body text-center">
+                <input id="file-profile-cover" className="d-none" type="file" />
+                <label className="user-image" htmlFor="file-profile-cover">
+                  <figure className="">
+                    <img
+                      className="w-100"
+                      src={user.coverImage}
+                      alt="profile image"
+                    />
+                  </figure>
+                </label>
+              </div>
+              <div className="modal-footer border-0 pt-2 d-flex justify-content-center">
+                <span
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  <Button
+                    className="button-primary button-cancel"
+                    txtButton="Cancelar"
+                  />
+                </span>
+                <Button
+                  className="button-gray"
+                  txtButton="Salvar"
+                  type="submit"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
   return (
     <div className="profile-info-container">
+      <ModalProfileImage />
+      <ModalProfileCover />
       <div className="profile-info-header my-5">
         <div className="profile-info-header-cover">
           <figure>
             <img src={user.coverImage} alt="capa" />
           </figure>
-          <div className="change-cover bg-alert-success d-flex">
+          <div
+            className="change-cover bg-alert-success d-flex"
+            data-bs-target="#modal-profile-cover"
+            data-bs-toggle="modal"
+            type="button"
+          >
             <div className="text-light m-auto">
               <img className="m-auto d-block" src={pencil} alt="edit" />
             </div>
@@ -598,7 +731,12 @@ const HeaderProfile = () => {
               <figure className="profile-info-image m-0">
                 <img className="w-100" src={user.picture} alt="perfil" />
               </figure>
-              <div className="change-profile-image bg-alert-success d-flex">
+              <div
+                className="change-profile-image bg-alert-success d-flex"
+                data-bs-target="#modal-profile-image"
+                data-bs-toggle="modal"
+                type="button"
+              >
                 <figure className="text-light m-auto">
                   <img className="m-auto d-block" src={pencil} alt="edit" />
                 </figure>
@@ -634,7 +772,6 @@ const HeaderProfile = () => {
     </div>
   );
 };
-
 const MainProfile = () => {
   const user = UserInformation();
 

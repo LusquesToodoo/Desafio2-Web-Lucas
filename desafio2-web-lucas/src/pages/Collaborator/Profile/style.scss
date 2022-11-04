@@ -61,9 +61,11 @@
     margin-left: 88px;
   }
   & .profile-info-image {
+    background-color: map-get($map: $map-gray-colors, $key: "200");
     border-radius: 50%;
     border: solid 7px #f9f9fa;
     height: 216px;
+    overflow: hidden;
     width: 216px;
   }
 }
@@ -235,7 +237,79 @@
       }
     }
   }
-  & .page-profile-Password{
-    
+  & .page-profile-Password {
+  }
+}
+
+#modal-profile-image {
+  .modal-dialog {
+    max-width: 600px;
+  }
+  & .modal-body {
+    & .user-image {
+      border-radius: 50%;
+      cursor: pointer;
+      height: 175px;
+      margin: auto;
+      overflow: hidden;
+      position: relative;
+      width: 175px;
+      &:hover {
+        &::after {
+          opacity: 0.5;
+        }
+        &::before {
+          opacity: 0.8;
+        }
+      }
+      &::after {
+        background-color: #161620;
+        content: "";
+        display: block;
+        height: 175px;
+        left: 0;
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+        transition: 0.3s;
+        width: 175px;
+      }
+      &::before {
+        content: url("./images/camera-plus.svg");
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.3s;
+        z-index: 1;
+      }
+    }
+  }
+  & .button-cancel {
+    background-color: transparent;
+    &:active {
+      background-color: transparent !important;
+    }
+    span {
+      color: #ea005a;
+    }
+  }
+}
+#modal-profile-cover {
+  .modal-dialog {
+    max-width: 840px;
+  }
+  & .user-image{
+    margin: auto;
+    width: 775px;
+  }
+  & .button-cancel {
+    background-color: transparent;
+    &:active {
+      background-color: transparent !important;
+    }
+    span {
+      color: #ea005a;
+    }
   }
 }
