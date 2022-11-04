@@ -1,15 +1,49 @@
 /*  eslint-disabled*/
 import "./style.scss";
+import { useEffect } from "react";
 import { useState } from "react";
+import API from "../../../components/API";
 import Button from "../../../components/Button";
+import Dropdown from "../../../components/Dropdown";
 import facebook from "./images/facebook.png";
 import Input from "../../../components/Input";
 import instagram from "./images/instagram.png";
 import linkedin from "./images/linkedIn.png";
 import pencil from "./images/pencil.png";
-import Dropdown from "../../../components/Dropdown";
+import UserInformation from "../UserInformation";
 
-const PersonalInformation = () => {
+const PersonalInformation = ({ user }) => {
+  const [birthdayDate, setBirthdayDate] = useState("");
+  const [maritalState, setMaritalState] = useState("");
+  const [genre, setGenre] = useState("");
+  const [CPF, setCPF] = useState("");
+  const [RG, setRG] = useState("");
+  const [PIS, setPIS] = useState("");
+  const [CTPS, setCTPS] = useState("");
+  const [aboutMe, setAboutMe] = useState("");
+  const [bankInformation, setBankInformation] = useState("");
+  const [address, setAddress] = useState("");
+
+  setTimeout(() => {
+    setBirthdayDate(user.birthday.split(/[A-z]/)[0]);
+    setAboutMe(user.aboutMe);
+    setBankInformation(user.bankInformation);
+    setGenre(user.genre);
+    setMaritalState(user.maritalStatus);
+    setAddress(user.address);
+    user.documents.forEach((item) => {
+      if (item.type === "CPF") {
+        setCPF(item.value);
+      } else if (item.type === "RG") {
+        setRG(item.value);
+      } else if (item.type === "PIS") {
+        setPIS(item.value);
+      } else if (item.type === "CTPS") {
+        setCTPS(item.value);
+      }
+    });
+  }, 100);
+
   return (
     <>
       <div className="personal-information">
@@ -19,26 +53,65 @@ const PersonalInformation = () => {
               <h6 className="text-primary-400 mb-4">Dados pessoais</h6>
               <fieldset className="first-field d-flex gap-2 mb-1">
                 <span className="personal-information-birthday">
-                  <Input txtType="date" txtLabel="Nascimento*">
+                  <Input
+                    txtType="date"
+                    txtLabel="Nascimento*"
+                    value={birthdayDate}
+                    updateInput={(e) => setBirthdayDate(e)}
+                  >
                     <span className="material-icons fs-5">calendar_month</span>
                   </Input>
                 </span>
                 <Dropdown
+                  value={maritalState}
+                  updateDropdown={(e) => {
+                    setMaritalState(e.target.value);
+                  }}
                   txtLabel="Estado Civil"
                   optionsList={["solteiro", "casado", "Viúvo", "Outro"]}
                 />
                 <Dropdown
                   txtLabel="Gênero"
-                  optionsList={["Masculino", "Feminino"]}
+                  optionsList={["M", "F"]}
+                  value={genre}
+                  updateDropdown={(e) => {
+                    setGenre(e.target.value);
+                  }}
                 />
               </fieldset>
               <fieldset className="second-field d-flex gap-2 mb-1">
-                <Input txtLabel="CPF*" txtPlaceholder="000.000.000-00" />
-                <Input txtLabel="RG*" txtPlaceholder="00.000-000" />
+                <Input
+                  txtLabel="CPF*"
+                  txtPlaceholder="000.000.000-00"
+                  updateInput={(CPF) => setCPF(CPF)}
+                  value={CPF}
+                />
+                <Input
+                  txtLabel="RG*"
+                  txtPlaceholder="00.000-000"
+                  value={RG}
+                  updateInput={(e) => {
+                    setRG(e);
+                  }}
+                />
               </fieldset>
               <fieldset className="third-field d-flex gap-2 mb-0">
-                <Input txtLabel="PIS" txtPlaceholder="00.000-00" />
-                <Input txtLabel="CTPS" txtPlaceholder="00.000-000" />
+                <Input
+                  txtLabel="PIS"
+                  txtPlaceholder="00.000-00"
+                  value={PIS}
+                  updateInput={(e) => {
+                    setPIS(e);
+                  }}
+                />
+                <Input
+                  txtLabel="CTPS"
+                  txtPlaceholder="00.000-000"
+                  value={CTPS}
+                  updateInput={(e) => {
+                    setCTPS(e);
+                  }}
+                />
               </fieldset>
             </form>
           </div>
@@ -48,6 +121,10 @@ const PersonalInformation = () => {
               <textarea
                 className="modal-textarea input text-gray-700 p-3 w-100"
                 type="text"
+                onChange={(e) => {
+                  setAboutMe(e.target.value);
+                }}
+                value={aboutMe}
               ></textarea>
             </form>
           </div>
@@ -64,16 +141,25 @@ const PersonalInformation = () => {
                 />
               </fieldset>
               <fieldset className="d-flex gap-2 mb-2">
-                <Input txtLabel="Agência*" txtPlaceholder="00000" />
+                <Input
+                  txtLabel="Agência*"
+                  txtPlaceholder="00000"
+                  value={bankInformation.agency}
+                />
                 <span className="bank-account">
                   <Input
                     txtLabel="Conta (com dígito)*"
                     txtPlaceholder="000000000-0"
+                    value={bankInformation.account}
                   />
                 </span>
               </fieldset>
               <fieldset>
-                <Input txtLabel="PIX*" txtPlaceholder="00000000000000000000" />
+                <Input
+                  txtLabel="PIX*"
+                  txtPlaceholder="00000000000000000000"
+                  value={bankInformation.pix}
+                />
               </fieldset>
             </form>
           </div>
@@ -81,17 +167,41 @@ const PersonalInformation = () => {
             <form className="" action="">
               <h6 className="text-primary-400 mb-4">dados de contato</h6>
               <fieldset className="first-field d-flex gap-2 mb-2">
-                <Input txtLabel="CEP*" txtPlaceholder="00000-000" />
-                <Input txtLabel="Cidade*" txtPlaceholder="00000-000" />
-                <Dropdown optionsList={["SP"]} />
+                <Input
+                  txtLabel="CEP*"
+                  txtPlaceholder="00000-000"
+                  value={address.zipcode}
+                />
+                <Input
+                  txtLabel="Cidade*"
+                  txtPlaceholder="00000-000"
+                  value={address.city}
+                />
+                <Dropdown optionsList={["SP", "MG"]} value={address.state} />
               </fieldset>
               <fieldset className="second-field d-flex gap-2">
-                <Input txtLabel="Endereço*" txtPlaceholder="Avenida Moaci" />
-                <Input txtLabel="Cidade*" txtPlaceholder="00000-000" />
+                <Input
+                  txtLabel="Endereço*"
+                  txtPlaceholder="Avenida Moaci"
+                  value={address.address}
+                />
+                <Input
+                  txtLabel="número*"
+                  txtPlaceholder="56154"
+                  value={address.number}
+                />
               </fieldset>
               <fieldset className="third-field d-flex gap-2">
-                <Input txtLabel="Complemento" txtPlaceholder="Apartamento 72" />
-                <Input txtLabel="Bairro*" txtPlaceholder="Planalto Paulista" />
+                <Input
+                  txtLabel="Complemento"
+                  txtPlaceholder="Apartamento 72"
+                  value={address.complement}
+                />
+                <Input
+                  txtLabel="Bairro*"
+                  txtPlaceholder="Planalto Paulista"
+                  value={address.neighborhood}
+                />
               </fieldset>
             </form>
           </div>
@@ -467,17 +577,14 @@ const Password = () => {
     </>
   );
 };
-
 const HeaderProfile = () => {
+  const user = UserInformation();
   return (
     <div className="profile-info-container">
       <div className="profile-info-header my-5">
         <div className="profile-info-header-cover">
           <figure>
-            <img
-              src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/Cover.png"
-              alt="capa"
-            />
+            <img src={user.coverImage} alt="capa" />
           </figure>
           <div className="change-cover bg-alert-success d-flex">
             <div className="text-light m-auto">
@@ -489,11 +596,7 @@ const HeaderProfile = () => {
           <div className="profile-user-info d-flex align-items-end gap-5">
             <div className="position-relative">
               <figure className="profile-info-image m-0">
-                <img
-                  className="w-100"
-                  src="https://raw.githubusercontent.com/LusquesToodoo/Desafio2-Web-Lucas/main/desafio2-web-lucas/public/images/png/profile.png"
-                  alt="perfil"
-                />
+                <img className="w-100" src={user.picture} alt="perfil" />
               </figure>
               <div className="change-profile-image bg-alert-success d-flex">
                 <figure className="text-light m-auto">
@@ -502,25 +605,25 @@ const HeaderProfile = () => {
               </div>
             </div>
             <div className="mb-4">
-              <h3 className="mb-2">Igor Santana</h3>
-              <p className="body-2 text-gray-400 mb-1">
-                Chief Executive Office
+              <h3 className="mb-2">{user.name}</h3>
+              <p className="body-2 text-gray-400 mb-1">{user.jobTitle}</p>
+              <p className="body-2 text-gray-400 m-0">
+                Desde {user.createdAt ? user.createdAt.split("-")[0] : "..."}
               </p>
-              <p className="body-2 text-gray-400 m-0">Desde 2017</p>
             </div>
           </div>
           <div className="d-flex gap-1 mt-4">
-            <a href="#">
+            <a href={user.facebook || "#"} target="__blank">
               <figure>
                 <img src={facebook} alt="facebook" />
               </figure>
             </a>
-            <a href="#">
+            <a href={user.instagram || "#"} target="__blank">
               <figure>
                 <img src={instagram} alt="instagram" />
               </figure>
             </a>
-            <a href="#">
+            <a href={user.linkedin || "#"} target="__blank">
               <figure>
                 <img src={linkedin} alt="linkedin" />
               </figure>
@@ -533,8 +636,10 @@ const HeaderProfile = () => {
 };
 
 const MainProfile = () => {
+  const user = UserInformation();
+
   const profilePagesElements = {
-    ["Info pessoal"]: <PersonalInformation />,
+    ["Info pessoal"]: <PersonalInformation user={user} />,
     ["Profissional"]: <Professional />,
     ["Geral"]: <Geral />,
     ["Senha"]: <Password />,

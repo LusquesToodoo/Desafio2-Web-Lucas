@@ -20,6 +20,7 @@ const Input = ({
         className={`input p-3 w-100 ${txtInputClass} ${children ? "pe-5" : ""}`}
         disabled={disabled}
         onChange={(e) => updateInput(e.target.value)}
+        onClick={()=>{console.log(value)}}
         placeholder={txtPlaceholder}
         required={required}
         type={txtType}

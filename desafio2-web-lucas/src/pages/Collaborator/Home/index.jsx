@@ -2,30 +2,7 @@ import "./style.scss";
 import axios from "axios";
 import Button from "../../../components/Button";
 import { useEffect, useState } from "react";
-
-const authorization = {
-  headers: {
-    Authorization: `Bearer ${
-      localStorage.getItem("token") || sessionStorage.getItem("token")
-    }`,
-  },
-};
-
-const API = async (url, key) => {
-  const link = key ? url + key : url;
-  let result;
-
-  await axios
-    .get(link, authorization)
-    .then((response) => {
-      result = response;
-    })
-    .catch((error) => {
-      console.log("Erro ao fazer requisição");
-      result = error;
-    });
-  return result;
-};
+import API from "../../../components/API";
 
 const CollaboratorHome = () => {
   const mounth = [
@@ -45,14 +22,6 @@ const CollaboratorHome = () => {
   let birthdayList = [];
   const [birthdayItems, setBirthdayItems] = useState(undefined);
   const [user, setUser] = useState({});
-
-  const authorization = {
-    headers: {
-      Authorization: `Bearer ${
-        localStorage.getItem("token") || sessionStorage.getItem("token")
-      }`,
-    },
-  };
 
   const createBirthdayList = () => {
     const filtrateDate = ([day, birthdayMounth, ...year]) => {
@@ -92,7 +61,7 @@ const CollaboratorHome = () => {
   };
 
   const getBirthdayList = async () => {
-    birthdayList = await API(
+    [birthdayList] = await API(
       "https://erm-api.azurewebsites.net/Employee/birthdayOfTheMonth",
     );
     birthdayList = birthdayList.data;
@@ -115,6 +84,7 @@ const CollaboratorHome = () => {
         authorization,
       )
       .then((response) => {
+        console.log(response.data);
         setUser(response.data);
       })
       .catch((error) => {
@@ -151,7 +121,7 @@ const CollaboratorHome = () => {
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
-                      Aline Santesso requisitou 15 dias de férias.
+                      Igor Santana requisitou 15 dias de férias.
                     </p>
                     <div className="d-flex">
                       <p className="sector-label bg-primary-400 text-light m-0 me-3">
@@ -180,7 +150,7 @@ const CollaboratorHome = () => {
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
-                      Aline Santesso requisitou 15 dias de férias.
+                      Igor Santana requisitou 15 dias de férias.
                     </p>
                     <div className="d-flex">
                       <p className="sector-label bg-primary-400 text-light m-0 me-3">
@@ -209,7 +179,7 @@ const CollaboratorHome = () => {
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
-                      Aline Santesso requisitou 15 dias de férias.
+                      Igor Santana requisitou 15 dias de férias.
                     </p>
                     <div className="d-flex">
                       <p className="sector-label bg-primary-400 text-light m-0 me-3">
@@ -238,7 +208,7 @@ const CollaboratorHome = () => {
                   </figure>
                   <div>
                     <p className="body-2 text-primary-600 mb-1">
-                      Aline Santesso requisitou 15 dias de férias.
+                      Igor Santana requisitou 15 dias de férias.
                     </p>
                     <div className="d-flex">
                       <p className="sector-label bg-primary-400 text-light m-0 me-3">

@@ -1,5 +1,5 @@
 import "./style.scss";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import chart from "./images/chart-gray.svg";
 import data from "./images/data-gray.svg";
@@ -81,6 +81,10 @@ const selectElement = (element, elementClass) => {
 
 const Sidebar = ({ menuSpace }) => {
   const [user, setUser] = useState("");
+  const navigate = useNavigate();
+  if (!(localStorage.getItem("token") || sessionStorage.getItem("token"))) {
+    navigate("/");
+  }
   const userInfo = async () => {
     await axios
       .get(
@@ -91,6 +95,7 @@ const Sidebar = ({ menuSpace }) => {
       )
       .then((response) => {
         setUser(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

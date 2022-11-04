@@ -6,12 +6,20 @@ const Dropdown = ({
   txtClue,
   txtLabel = "Label",
   txtPlaceholder = "",
+  updateDropdown,
+  value = "",
 }) => {
   return (
     <div className="body-2">
       <label className="w-100">
         <p className="text-gray-500 mb-2">{txtLabel}</p>
-        <select className="input form-select shadow-none body-2 p-3" id={id}>
+        <select
+          className="input form-select shadow-none body-2 p-3"
+          id={id}
+          onChange={updateDropdown}
+          onClick={()=>{console.log(value);}}
+          value={value}
+        >
           {txtPlaceholder ? (
             <option
               className="input-placeholder text-gray-300"
