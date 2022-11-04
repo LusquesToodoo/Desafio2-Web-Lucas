@@ -5,7 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const FormForgotPassword = () => {
-  const [email, setEmail] = useState("marcos.santos@toodoo.com.brk");
+  const [email, setEmail] = useState("marcos.santos@toodoo.com.br");
   const [href, setHref] = useState("");
   const [modalText, setModalText] = useState(undefined);
   const [modalTitle, setModalTitle] = useState(undefined);
