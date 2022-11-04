@@ -4,7 +4,7 @@ import axios from "axios";
 import chart from "./images/chart-gray.svg";
 import data from "./images/data-gray.svg";
 import expand from "./images/Expand.png";
-import goOut from "./images/go-out.svg";
+import exit from "./images/go-out.svg";
 import help from "./images/help-gray.svg";
 import home from "./images/home-gray.svg";
 import menuArrow from "./images/menu-arrow.svg";
@@ -85,6 +85,11 @@ const Sidebar = ({ menuSpace }) => {
   if (!(localStorage.getItem("token") || sessionStorage.getItem("token"))) {
     navigate("/");
   }
+  const goOut = () => {
+    localStorage.removeItem("userId");
+    sessionStorage.removeItem("token");
+    localStorage.removeItem("token");
+  };
   const userInfo = async () => {
     await axios
       .get(
@@ -99,7 +104,7 @@ const Sidebar = ({ menuSpace }) => {
       })
       .catch((error) => {
         console.log(error);
-        alert("erro na sidebar");
+        navigate("/");
       });
   };
   useEffect(() => {
@@ -299,10 +304,14 @@ const Sidebar = ({ menuSpace }) => {
                   <figure className=" fs-3 m-0">
                     <i className="bi bi-three-dots fs-5 me-1"></i>
                   </figure>
-                  <Link className="text-decoration-none" to={"/"}>
+                  <Link
+                    className="text-decoration-none"
+                    to={"/"}
+                    onClick={goOut}
+                  >
                     <div className="modal-go-out text-gray-100 shadow-sm mt-3 d-flex align-content-center">
                       <figure className="m-0">
-                        <img src={goOut} alt="go out" />
+                        <img src={exit} alt="go out" />
                       </figure>
                       <p className="body-2 text-gray-700 m-0 mt-1 ms-2">Sair</p>
                     </div>
