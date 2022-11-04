@@ -5,6 +5,7 @@ const InputPassword = ({
   disabled,
   required,
   txtClue = "dica ou erro",
+  txtInputClass = "",
   txtLabel = "Label - password",
   txtPlaceholder = "Placeholder",
   updatePassword,
@@ -21,7 +22,7 @@ const InputPassword = ({
         <div>
           <p className="text-gray-500 mb-2">{txtLabel}</p>
           <input
-            className="input p-3 w-100 pe-5"
+            className={`input p-3 w-100 pe-5 ${txtInputClass}`}
             disabled={disabled}
             onChange={(e) => updatePassword(e.target.value)}
             placeholder={txtPlaceholder}

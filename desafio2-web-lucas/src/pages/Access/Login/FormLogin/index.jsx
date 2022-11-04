@@ -13,6 +13,8 @@ const FormLogin = () => {
   const [password, setPassword] = useState("abelha@1234");
   const [statusLoading, setStatusLoading] = useState("d-none");
   const [statusModal, setStatusModal] = useState("d-none");
+  const [validEmail, setValidEmail] = useState("");
+  const [validPassword, setValidPassword] = useState("");
   const navigate = useNavigate();
 
   const validateLogin = async (e) => {
@@ -64,6 +66,10 @@ const FormLogin = () => {
       setStatusModal("error");
       setModalTitle("Campo vazio");
       setModalText("Para prosseguir preencha todos os campos obrigatórios.");
+      console.log();
+      email ? setValidEmail("success") : setValidEmail("error");
+      password ? setValidPassword("success") : setValidPassword("error");
+      debugger
       return;
     }
   };
@@ -74,6 +80,7 @@ const FormLogin = () => {
         <Input
           required
           txtClue="Informe seu endereço de email"
+          txtInputClass={validEmail}
           txtLabel="Email*"
           txtPlaceholder="ex. johndoe@toodoo.com.br"
           txtType="email"
@@ -85,6 +92,7 @@ const FormLogin = () => {
         <InputPassword
           required
           txtClue="Informe sua senha"
+          txtInputClass={validPassword}
           txtLabel="Senha*"
           txtPlaceholder="ao menos 8 caracteres"
           updatePassword={(password) => setPassword(password)}
