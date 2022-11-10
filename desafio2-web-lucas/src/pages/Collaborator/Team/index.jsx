@@ -161,9 +161,6 @@ const Team = () => {
                   txtLabel=""
                   updateDropdown={(e) => setNthElements(e)}
                   value={nthElements}
-                  onChange={() => {
-                    alert("olá");
-                  }}
                 />
                 <i className="bi bi-caret-down-fill h-25"></i>
               </span>
