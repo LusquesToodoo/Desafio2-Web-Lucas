@@ -1,6 +1,27 @@
 .team-table {
   & .profile-table-image {
+    border-radius: 50%;
     height: 40px;
+    overflow: hidden;
     width: 40px;
+  }
+
+  & thead {
+    & .bg-primary-500 {
+      display: block;
+      & > td, th {
+        display: block;
+        max-width: 200px;
+        width: 100% !important;
+      }
+    }
+  }
+  & tr {
+    display: block;
+    & > td {
+      display: block;
+      max-width: 200px;
+      width: 100% !important;
+    }
   }
 }

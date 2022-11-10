@@ -8,7 +8,13 @@ const Dropdown = ({
   txtPlaceholder = "",
   updateDropdown,
   value = "",
+  onChange = "",
 }) => {
+
+  const change = (e)=>{
+    updateDropdown(e.target.value)
+    onChange()
+  }
   return (
     <div className="body-2">
       <label className="w-100">
@@ -16,8 +22,10 @@ const Dropdown = ({
         <select
           className="input form-select shadow-none body-2 p-3"
           id={id}
-          onChange={updateDropdown}
-          onClick={()=>{console.log(value);}}
+          onChange={change}
+          onClick={() => {
+            console.log(value);
+          }}
           value={value}
         >
           {txtPlaceholder ? (

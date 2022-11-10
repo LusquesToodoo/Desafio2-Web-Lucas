@@ -66,7 +66,6 @@ const FormLogin = () => {
       setStatusModal("error");
       setModalTitle("Campo vazio");
       setModalText("Para prosseguir preencha todos os campos obrigatórios.");
-      console.log();
       email ? setValidEmail("success") : setValidEmail("error");
       password ? setValidPassword("success") : setValidPassword("error");
       debugger

@@ -74,7 +74,7 @@ const Components = () => {
             src={statusModal ? `svg/modal-status-${statusModal}.svg` : ""}
             statusModal={statusModal}
             titleModal="Verifique sua caixa de entrada"
-            // txtButton={"pode crê"} // sem esse atributo o botão não existe.
+            // txtButton={"botão existe"} // sem esse atributo o botão não existe.
             txtModal="Enviamos um email com instruções para redefinir sua senha."
           />
         }
