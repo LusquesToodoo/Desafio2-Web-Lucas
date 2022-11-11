@@ -5,6 +5,7 @@ import Button from "../../../components/Button";
 import Dropdown from "../../../components/Dropdown";
 import facebook from "./images/facebook.png";
 import Input from "../../../components/Input";
+import InputPassword from "../../../components/InputPassword";
 import instagram from "./images/instagram.png";
 import linkedin from "./images/linkedIn.png";
 import pencil from "./images/pencil.png";
@@ -547,23 +548,32 @@ const Geral = () => {
   );
 };
 const Password = () => {
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   return (
     <>
       <div className="page-profile-Password px-3">
         <div className="w-50">
-          <Input
+          <InputPassword
             txtLabel="Senha atual"
             txtPlaceholder="Insira sua senha atual"
+            updatePassword={(e) => setCurrentPassword(e)}
+            value={currentPassword}
           />
           <span className="d-block m-2"></span>
-          <Input
+          <InputPassword
             txtLabel="Nova senhal"
             txtPlaceholder="Ao menos 8 caracteres"
+            updatePassword={(e) => setNewPassword(e)}
+            value={newPassword}
           />
           <span className="d-block m-2"></span>
-          <Input
+          <InputPassword
             txtLabel="Repetir nova senha"
             txtPlaceholder="Insira sua senha atual"
+            value={confirmPassword}
+            updatePassword={(e) => setConfirmPassword(e)}
           />
           <p className="caption text-gray-400 mt-4 pe-5">
             Dica: Sua senha deve ter, ao menos, 8 caracteres. Para torná-la

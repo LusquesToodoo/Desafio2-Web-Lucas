@@ -65,7 +65,6 @@ const CollaboratorHome = () => {
       "https://erm-api.azurewebsites.net/Employee/birthdayOfTheMonth",
     );
     birthdayList = birthdayList.data;
-    console.log(birthdayList);
     createBirthdayList();
   };
   const getUserInfo = async () => {
@@ -84,7 +83,6 @@ const CollaboratorHome = () => {
         authorization,
       )
       .then((response) => {
-        console.log(response.data);
         setUser(response.data);
       })
       .catch((error) => {

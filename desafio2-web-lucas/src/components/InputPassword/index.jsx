@@ -4,7 +4,7 @@ import "./style.scss";
 const InputPassword = ({
   disabled,
   required,
-  txtClue = "dica ou erro",
+  txtClue = "",
   txtInputClass = "",
   txtLabel = "Label - password",
   txtPlaceholder = "Placeholder",
